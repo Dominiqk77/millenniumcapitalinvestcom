@@ -4,6 +4,7 @@ import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 import logoLight from '@/assets/logo-light.png';
+import logoDark from '@/assets/logo-dark.png';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,17 +40,24 @@ const Navigation = () => {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-background/80 backdrop-blur-xl border-b border-border/50'
+            ? 'bg-background/90 backdrop-blur-xl border-b border-border/40'
             : 'bg-transparent'
         }`}
       >
         <nav className="section-container flex h-20 items-center justify-between">
           {/* Logo */}
-          <a href="#" className="relative z-10 flex items-center gap-3">
-            <img src={logoLight} alt="Millennium Capital Invest" className="h-10 w-auto" />
-            <span className="hidden text-lg font-semibold tracking-tight text-foreground sm:block">
-              Millennium Capital
-            </span>
+          <a href="#" className="relative z-10 flex items-center gap-3 group">
+            <motion.img 
+              src={logoDark} 
+              alt="Millennium Capital Invest" 
+              className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" 
+            />
+            <div className="hidden sm:block">
+              <span className="block text-lg font-semibold tracking-tight text-foreground">
+                Millennium Capital
+              </span>
+              <span className="block text-xs text-muted-foreground">Invest LLC</span>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
@@ -69,7 +77,7 @@ const Navigation = () => {
           <div className="hidden items-center gap-4 lg:flex">
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-2 rounded-full border border-border/50 px-3 py-1.5 text-sm font-medium text-muted-foreground transition-all hover:border-primary/50 hover:text-foreground"
+              className="flex items-center gap-2 rounded-full border border-border/50 px-3 py-1.5 text-sm font-medium text-muted-foreground transition-all hover:border-primary/50 hover:text-primary"
             >
               <Globe className="h-4 w-4" />
               {language.toUpperCase()}
@@ -92,6 +100,15 @@ const Navigation = () => {
             )}
           </button>
         </nav>
+
+        {/* Brand gradient line on scroll */}
+        {isScrolled && (
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            className="absolute bottom-0 left-0 right-0 h-px gradient-brand-bg opacity-50"
+          />
+        )}
       </motion.header>
 
       {/* Mobile Menu */}
@@ -102,7 +119,7 @@ const Navigation = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-xl lg:hidden"
           >
             <motion.nav
               initial={{ opacity: 0, y: 20 }}

@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Linkedin } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import logoLight from '@/assets/logo-light.png';
+import logoDark from '@/assets/logo-dark.png';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -30,16 +31,22 @@ const Footer = () => {
 
   return (
     <footer className="relative border-t border-border/30 bg-background-deep">
+      {/* Brand gradient line */}
+      <div className="absolute top-0 left-0 right-0 h-px gradient-brand-bg opacity-30" />
+      
       <div className="section-container py-16 lg:py-24">
         {/* Main Footer Content */}
         <div className="grid gap-12 lg:grid-cols-5">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <a href="#" className="inline-flex items-center gap-3">
-              <img src={logoLight} alt="Millennium Capital Invest" className="h-10 w-auto" />
-              <span className="text-xl font-semibold text-foreground">
-                Millennium Capital Invest
-              </span>
+            <a href="#" className="inline-flex items-center gap-3 group">
+              <img src={logoDark} alt="Millennium Capital Invest" className="h-12 w-auto transition-transform group-hover:scale-105" />
+              <div>
+                <span className="block text-xl font-semibold text-foreground">
+                  Millennium Capital Invest
+                </span>
+                <span className="block text-xs text-muted-foreground">LLC • Wyoming, USA</span>
+              </div>
             </a>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Next-generation AI, FinTech, and GovTech platforms for high-stakes environments.
@@ -57,6 +64,14 @@ const Footer = () => {
             <div className="mt-3 flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin className="h-4 w-4" />
               Wyoming, USA | Paris, France | Dakar, Senegal
+            </div>
+            
+            {/* Brand color indicators */}
+            <div className="mt-6 flex items-center gap-2">
+              <span className="h-3 w-3 rounded-full bg-brand-orange" />
+              <span className="h-3 w-3 rounded-full bg-brand-coral" />
+              <span className="h-3 w-3 rounded-full bg-brand-blue" />
+              <span className="h-3 w-3 rounded-full bg-brand-teal" />
             </div>
           </div>
 
@@ -137,24 +152,14 @@ const Footer = () => {
             >
               {t('footer.terms')}
             </a>
-            <div className="flex items-center gap-3">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-primary"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-primary"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-            </div>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground transition-colors hover:text-primary"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
           </div>
         </div>
 

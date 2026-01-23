@@ -10,7 +10,8 @@ const divisions = [
     descKey: 'divisions.govtech.desc',
     icon: Shield,
     video: '/videos/division-1.mp4',
-    color: 'from-emerald-500/20 to-emerald-500/5',
+    color: 'brand-teal',
+    glowClass: 'bg-brand-teal/20',
   },
   {
     id: '02',
@@ -18,7 +19,8 @@ const divisions = [
     descKey: 'divisions.fintech.desc',
     icon: CreditCard,
     video: '/videos/division-2.mp4',
-    color: 'from-blue-500/20 to-blue-500/5',
+    color: 'brand-blue',
+    glowClass: 'bg-brand-blue/20',
   },
   {
     id: '03',
@@ -26,7 +28,8 @@ const divisions = [
     descKey: 'divisions.ai.desc',
     icon: Bot,
     video: '/videos/division-3.mp4',
-    color: 'from-primary/20 to-primary/5',
+    color: 'brand-orange',
+    glowClass: 'bg-brand-orange/20',
   },
 ];
 
@@ -34,14 +37,6 @@ const DivisionsSection = () => {
   const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"]
-  });
-
-  // Pinned section effect
-  const activeIndexFromScroll = useTransform(scrollYProgress, [0, 0.33, 0.66, 1], [0, 0, 1, 2]);
 
   return (
     <section
@@ -65,14 +60,14 @@ const DivisionsSection = () => {
                 loop
                 muted
                 playsInline
-                className="h-full w-full object-cover opacity-30"
+                className="h-full w-full object-cover opacity-25"
               >
                 <source src={division.video} type="video/mp4" />
               </video>
-              <div className={`absolute inset-0 bg-gradient-to-br ${division.color}`} />
+              <div className={`absolute inset-0 ${division.glowClass} blur-[100px]`} />
             </motion.div>
           ))}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
         </div>
 
         <div className="section-container relative z-10">
@@ -103,6 +98,9 @@ const DivisionsSection = () => {
                 {divisions.map((division, index) => {
                   const Icon = division.icon;
                   const isActive = activeIndex === index;
+                  const colorClass = `text-${division.color}`;
+                  const bgClass = `bg-${division.color}/10`;
+                  const borderClass = isActive ? `border-${division.color}/50` : 'border-border/30';
 
                   return (
                     <motion.div
@@ -114,15 +112,19 @@ const DivisionsSection = () => {
                       onMouseEnter={() => setActiveIndex(index)}
                       className={`group cursor-pointer rounded-xl border p-6 transition-all duration-500 ${
                         isActive
-                          ? 'border-primary/50 bg-primary/10'
+                          ? `border-primary/50 bg-primary/5`
                           : 'border-border/30 bg-secondary/20 hover:border-primary/30'
                       }`}
                     >
                       <div className="flex items-start gap-4">
-                        <span className="text-3xl font-bold text-primary/40">{division.id}</span>
+                        <span className={`text-3xl font-bold ${isActive ? 'text-primary' : 'text-muted-foreground/40'}`}>
+                          {division.id}
+                        </span>
                         <div className="flex-1">
                           <div className="mb-2 flex items-center gap-3">
-                            <Icon className={`h-5 w-5 transition-colors ${isActive ? 'text-primary' : 'text-muted-foreground'}`} />
+                            <div className={`rounded-lg p-2 ${isActive ? 'bg-primary/20' : 'bg-secondary'}`}>
+                              <Icon className={`h-5 w-5 ${isActive ? 'text-primary' : 'text-muted-foreground'}`} />
+                            </div>
                             <h3 className="text-lg font-semibold text-foreground">
                               {t(division.titleKey)}
                             </h3>
@@ -150,10 +152,16 @@ const DivisionsSection = () => {
                 viewport={{ once: true }}
                 className="relative aspect-square w-full max-w-lg"
               >
-                {/* Decorative rings */}
-                <div className="absolute inset-0 animate-pulse rounded-full border border-primary/20" />
-                <div className="absolute inset-8 rounded-full border border-primary/15" />
-                <div className="absolute inset-16 rounded-full border border-primary/10" />
+                {/* Decorative rings with brand colors */}
+                <div className="absolute inset-0 rounded-full border border-brand-orange/20 animate-pulse" />
+                <div className="absolute inset-8 rounded-full border border-brand-blue/20" />
+                <div className="absolute inset-16 rounded-full border border-brand-teal/20" />
+                
+                {/* Brand color dots */}
+                <div className="absolute left-0 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-brand-orange animate-pulse" />
+                <div className="absolute right-0 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-brand-coral animate-pulse delay-300" />
+                <div className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 rounded-full bg-brand-blue animate-pulse delay-500" />
+                <div className="absolute bottom-0 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-brand-teal animate-pulse delay-700" />
                 
                 {/* Center icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -170,7 +178,7 @@ const DivisionsSection = () => {
                         transition={{ duration: 0.5 }}
                         className="absolute"
                       >
-                        <div className="glow-primary-strong rounded-3xl bg-secondary/50 p-12 backdrop-blur-xl">
+                        <div className="glow-primary-strong rounded-3xl bg-secondary/80 p-12 backdrop-blur-xl border border-primary/20">
                           <Icon className="h-24 w-24 text-primary" />
                         </div>
                       </motion.div>

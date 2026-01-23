@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { Check, Star } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 
@@ -19,6 +19,7 @@ const plans = [
       '3 months warranty',
     ],
     highlighted: false,
+    accentColor: 'brand-blue',
   },
   {
     id: 'pro',
@@ -36,6 +37,7 @@ const plans = [
       'Dedicated project manager',
     ],
     highlighted: true,
+    accentColor: 'brand-orange',
   },
   {
     id: 'enterprise',
@@ -54,6 +56,7 @@ const plans = [
       'Custom compliance',
     ],
     highlighted: false,
+    accentColor: 'brand-teal',
   },
 ];
 
@@ -66,6 +69,8 @@ const PricingSection = () => {
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-primary/5 blur-[150px]" />
+        <div className="absolute left-1/4 bottom-1/4 h-[400px] w-[400px] rounded-full bg-brand-blue/5 blur-[120px]" />
+        <div className="absolute right-1/4 top-1/4 h-[400px] w-[400px] rounded-full bg-brand-orange/5 blur-[120px]" />
       </div>
 
       <div className="section-container relative z-10">
@@ -96,13 +101,13 @@ const PricingSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-3 rounded-full border border-border/50 bg-secondary/30 p-1"
+            className="inline-flex items-center gap-1 rounded-full border border-border/50 bg-secondary/30 p-1"
           >
             <button
               onClick={() => setIsYearly(false)}
-              className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${
+              className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${
                 !isYearly
-                  ? 'bg-primary text-primary-foreground'
+                  ? 'bg-primary text-primary-foreground shadow-lg'
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
@@ -110,14 +115,14 @@ const PricingSection = () => {
             </button>
             <button
               onClick={() => setIsYearly(true)}
-              className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${
+              className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${
                 isYearly
-                  ? 'bg-primary text-primary-foreground'
+                  ? 'bg-primary text-primary-foreground shadow-lg'
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
               {t('pricing.yearly')}
-              <span className="ml-2 text-xs text-primary">-17%</span>
+              <span className="ml-2 rounded-full bg-brand-teal/20 px-2 py-0.5 text-xs text-brand-teal">-17%</span>
             </button>
           </motion.div>
         </div>
@@ -131,13 +136,14 @@ const PricingSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`glass-card relative overflow-hidden p-6 ${
-                plan.highlighted ? 'ring-2 ring-primary' : ''
+              className={`glass-card relative overflow-hidden p-6 transition-all duration-500 ${
+                plan.highlighted ? 'ring-2 ring-primary scale-[1.02]' : 'hover:border-primary/30'
               }`}
             >
               {/* Popular Badge */}
               {plan.highlighted && (
-                <div className="absolute -right-8 top-6 rotate-45 bg-primary px-10 py-1 text-xs font-semibold text-primary-foreground">
+                <div className="absolute -right-12 top-8 rotate-45 bg-gradient-to-r from-brand-orange to-brand-coral px-14 py-1.5 text-xs font-bold text-white shadow-lg">
+                  <Star className="mr-1 inline h-3 w-3" />
                   Popular
                 </div>
               )}
@@ -160,7 +166,7 @@ const PricingSection = () => {
                     </span>
                   </>
                 ) : (
-                  <span className="text-3xl font-bold text-foreground">Custom</span>
+                  <span className="text-3xl font-bold gradient-brand">Custom</span>
                 )}
               </div>
 
@@ -168,7 +174,7 @@ const PricingSection = () => {
               <ul className="mb-8 space-y-3">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 shrink-0 text-primary" />
+                    <Check className={`h-5 w-5 shrink-0 ${plan.highlighted ? 'text-brand-orange' : 'text-primary'}`} />
                     <span className="text-sm text-muted-foreground">{feature}</span>
                   </li>
                 ))}
