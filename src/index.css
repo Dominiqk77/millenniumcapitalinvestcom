@@ -6,70 +6,71 @@
 
 @layer base {
   :root {
-    /* Millennium Capital Dark Luxe Palette */
-    --background: 220 25% 4%;
-    --background-deep: 220 30% 3%;
-    --background-elevated: 220 20% 8%;
-    --foreground: 210 40% 96%;
+    /* Millennium Capital - Brand Colors from Logo */
+    --background: 220 20% 5%;
+    --background-deep: 220 25% 3%;
+    --background-elevated: 220 15% 9%;
+    --foreground: 40 20% 95%;
     
-    --card: 220 20% 6%;
-    --card-foreground: 210 40% 96%;
+    --card: 220 18% 7%;
+    --card-foreground: 40 20% 95%;
     
-    --popover: 220 20% 6%;
-    --popover-foreground: 210 40% 96%;
+    --popover: 220 18% 7%;
+    --popover-foreground: 40 20% 95%;
     
-    /* Electric Cyan Accent */
-    --primary: 187 100% 72%;
-    --primary-foreground: 220 25% 4%;
-    --primary-glow: 187 100% 72%;
+    /* Primary: Champagne Gold (from M logo) */
+    --primary: 38 35% 65%;
+    --primary-foreground: 220 25% 5%;
     
-    --secondary: 215 20% 14%;
-    --secondary-foreground: 210 30% 80%;
+    /* Brand Colors from Logo Squares */
+    --brand-orange: 25 95% 55%;
+    --brand-coral: 12 85% 55%;
+    --brand-blue: 210 85% 50%;
+    --brand-teal: 160 70% 45%;
     
-    --muted: 215 15% 12%;
-    --muted-foreground: 215 15% 55%;
+    --secondary: 220 15% 12%;
+    --secondary-foreground: 40 15% 85%;
     
-    --accent: 187 100% 72%;
-    --accent-foreground: 220 25% 4%;
+    --muted: 220 12% 14%;
+    --muted-foreground: 220 10% 55%;
+    
+    --accent: 38 35% 65%;
+    --accent-foreground: 220 25% 5%;
     
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 40 20% 98%;
     
-    --border: 215 20% 18%;
-    --input: 215 20% 14%;
-    --ring: 187 100% 72%;
+    --border: 220 15% 18%;
+    --input: 220 15% 14%;
+    --ring: 38 35% 65%;
     
     --radius: 0.75rem;
     
-    /* Custom Millennium tokens */
-    --glass: 220 20% 10% / 0.6;
-    --glass-border: 215 20% 25% / 0.3;
-    --glow-primary: 187 100% 72% / 0.15;
-    --glow-strong: 187 100% 72% / 0.3;
+    /* Glass effects */
+    --glass: 220 18% 10% / 0.7;
+    --glass-border: 38 20% 30% / 0.2;
+    --glow-primary: 38 35% 65% / 0.15;
+    --glow-orange: 25 95% 55% / 0.2;
+    --glow-blue: 210 85% 50% / 0.2;
     
     /* Typography */
     --font-sans: 'Inter', system-ui, sans-serif;
     --font-serif: 'Playfair Display', Georgia, serif;
     
-    /* Transitions */
-    --transition-slow: 800ms cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-medium: 500ms cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-fast: 300ms cubic-bezier(0.16, 1, 0.3, 1);
-    
     /* Sidebar */
-    --sidebar-background: 220 20% 6%;
-    --sidebar-foreground: 210 40% 96%;
-    --sidebar-primary: 187 100% 72%;
-    --sidebar-primary-foreground: 220 25% 4%;
-    --sidebar-accent: 215 20% 14%;
-    --sidebar-accent-foreground: 210 40% 96%;
-    --sidebar-border: 215 20% 18%;
-    --sidebar-ring: 187 100% 72%;
+    --sidebar-background: 220 18% 6%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 38 35% 65%;
+    --sidebar-primary-foreground: 220 25% 5%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 38 35% 65%;
   }
   
   .dark {
-    --background: 220 25% 4%;
-    --foreground: 210 40% 96%;
+    --background: 220 20% 5%;
+    --foreground: 40 20% 95%;
   }
 }
 
@@ -99,9 +100,9 @@
   .glass-card {
     @apply relative overflow-hidden rounded-2xl border backdrop-blur-xl;
     background: linear-gradient(
-      135deg,
+      145deg,
       hsl(var(--glass)) 0%,
-      hsl(220 20% 8% / 0.4) 100%
+      hsl(220 18% 8% / 0.5) 100%
     );
     border-color: hsl(var(--glass-border));
   }
@@ -120,7 +121,7 @@
     @apply opacity-100;
   }
   
-  /* Gradient text */
+  /* Gradient text - Brand colors */
   .gradient-text {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(
@@ -136,23 +137,52 @@
     background-image: linear-gradient(
       135deg,
       hsl(var(--primary)) 0%,
-      hsl(187 100% 85%) 100%
+      hsl(38 45% 75%) 50%,
+      hsl(var(--brand-orange)) 100%
+    );
+  }
+  
+  /* Multi-color gradient from logo */
+  .gradient-brand {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      90deg,
+      hsl(var(--brand-orange)) 0%,
+      hsl(var(--brand-coral)) 25%,
+      hsl(var(--brand-blue)) 75%,
+      hsl(var(--brand-teal)) 100%
+    );
+  }
+  
+  .gradient-brand-bg {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--brand-orange)) 0%,
+      hsl(var(--brand-coral)) 25%,
+      hsl(var(--brand-blue)) 75%,
+      hsl(var(--brand-teal)) 100%
     );
   }
   
   /* Glow effects */
   .glow-primary {
     box-shadow: 
-      0 0 20px hsl(var(--primary) / 0.15),
+      0 0 20px hsl(var(--primary) / 0.2),
       0 0 40px hsl(var(--primary) / 0.1),
       0 0 60px hsl(var(--primary) / 0.05);
   }
   
   .glow-primary-strong {
     box-shadow: 
-      0 0 30px hsl(var(--primary) / 0.3),
+      0 0 30px hsl(var(--primary) / 0.35),
       0 0 60px hsl(var(--primary) / 0.2),
       0 0 90px hsl(var(--primary) / 0.1);
+  }
+  
+  .glow-brand {
+    box-shadow: 
+      0 0 20px hsl(var(--brand-orange) / 0.2),
+      0 0 40px hsl(var(--brand-blue) / 0.15);
   }
   
   /* Section styling */
@@ -177,39 +207,66 @@
   
   .link-underline::after {
     content: '';
-    @apply absolute bottom-0 left-0 h-px w-full origin-bottom-right scale-x-0 bg-primary transition-transform duration-300;
+    @apply absolute bottom-0 left-0 h-px w-full origin-bottom-right scale-x-0 transition-transform duration-300;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--brand-orange)));
   }
   
   .link-underline:hover::after {
     @apply origin-bottom-left scale-x-100;
   }
   
-  /* Scroll indicator */
-  .scroll-indicator {
-    @apply animate-bounce;
-  }
-  
   /* Video background */
   .video-bg {
     @apply absolute inset-0 h-full w-full object-cover;
-    filter: brightness(0.4) saturate(0.8);
+    filter: brightness(0.35) saturate(0.9);
   }
   
   /* Grain overlay */
   .grain-overlay {
-    @apply pointer-events-none fixed inset-0 z-50 opacity-[0.03];
+    @apply pointer-events-none fixed inset-0 z-50 opacity-[0.02];
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
   
-  /* Divider */
+  /* Divider with brand gradient */
   .divider-glow {
     @apply h-px w-full;
     background: linear-gradient(
       90deg,
       transparent 0%,
-      hsl(var(--primary) / 0.5) 50%,
+      hsl(var(--primary) / 0.5) 25%,
+      hsl(var(--brand-orange) / 0.5) 50%,
+      hsl(var(--brand-blue) / 0.5) 75%,
       transparent 100%
     );
+  }
+  
+  /* Brand color badges */
+  .badge-orange {
+    @apply border-transparent;
+    background: hsl(var(--brand-orange) / 0.15);
+    color: hsl(var(--brand-orange));
+    border-color: hsl(var(--brand-orange) / 0.3);
+  }
+  
+  .badge-blue {
+    @apply border-transparent;
+    background: hsl(var(--brand-blue) / 0.15);
+    color: hsl(var(--brand-blue));
+    border-color: hsl(var(--brand-blue) / 0.3);
+  }
+  
+  .badge-teal {
+    @apply border-transparent;
+    background: hsl(var(--brand-teal) / 0.15);
+    color: hsl(var(--brand-teal));
+    border-color: hsl(var(--brand-teal) / 0.3);
+  }
+  
+  .badge-coral {
+    @apply border-transparent;
+    background: hsl(var(--brand-coral) / 0.15);
+    color: hsl(var(--brand-coral));
+    border-color: hsl(var(--brand-coral) / 0.3);
   }
 }
 
@@ -224,9 +281,6 @@
   .delay-300 { animation-delay: 300ms; }
   .delay-400 { animation-delay: 400ms; }
   .delay-500 { animation-delay: 500ms; }
-  .delay-600 { animation-delay: 600ms; }
-  .delay-700 { animation-delay: 700ms; }
-  .delay-800 { animation-delay: 800ms; }
   
   /* Hide scrollbar */
   .scrollbar-hide {
