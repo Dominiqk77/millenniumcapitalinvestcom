@@ -14,6 +14,10 @@ const ContactSection = () => {
     name: '',
     email: '',
     company: '',
+    orgType: '',
+    country: '',
+    need: '',
+    timeline: '',
     budget: '',
     message: '',
   });
@@ -24,7 +28,7 @@ const ContactSection = () => {
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitting(false);
     setIsSubmitted(true);
-    setFormData({ name: '', email: '', company: '', budget: '', message: '' });
+    setFormData({ name: '', email: '', company: '', orgType: '', country: '', need: '', timeline: '', budget: '', message: '' });
     setTimeout(() => setIsSubmitted(false), 5000);
   };
 
@@ -69,14 +73,11 @@ const ContactSection = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              {/* Book a Call Card */}
               <div className="glass-card group p-8 transition-all hover:border-primary/50">
                 <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                   <Calendar className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-foreground">
-                  {t('cta.book')}
-                </h3>
+                <h3 className="mb-3 text-xl font-semibold text-foreground">{t('cta.book')}</h3>
                 <p className="mb-6 text-muted-foreground">
                   Schedule a 30-minute discovery call to discuss your project requirements and explore how we can help.
                 </p>
@@ -86,20 +87,19 @@ const ContactSection = () => {
                 </Button>
               </div>
 
-              {/* Investor Deck Card */}
               <div className="glass-card group p-8 transition-all hover:border-primary/50">
                 <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                   <FileText className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-foreground">
-                  {t('cta.deck')}
-                </h3>
+                <h3 className="mb-3 text-xl font-semibold text-foreground">{t('cta.deck')}</h3>
                 <p className="mb-6 text-muted-foreground">
-                  Access our detailed investor presentation with financial projections, IP valuation, and growth strategy.
+                  Access our detailed investor presentation with strategy, IP valuation, and growth vision.
                 </p>
-                <Button variant="outline" size="lg" className="w-full">
-                  <FileText className="mr-2 h-5 w-5" />
-                  Request Deck
+                <Button variant="outline" size="lg" className="w-full" asChild>
+                  <a href="/investor-deck">
+                    <FileText className="mr-2 h-5 w-5" />
+                    {t('cta.deck')}
+                  </a>
                 </Button>
               </div>
             </motion.div>
@@ -114,44 +114,95 @@ const ContactSection = () => {
               {isSubmitted ? (
                 <div className="glass-card flex flex-col items-center justify-center p-12 text-center">
                   <CheckCircle className="mb-4 h-16 w-16 text-brand-teal" />
-                  <h3 className="mb-2 text-2xl font-semibold text-foreground">Message Sent!</h3>
-                  <p className="text-muted-foreground">We'll get back to you within 24 hours.</p>
+                  <h3 className="mb-2 text-2xl font-semibold text-foreground">{t('contact.success')}</h3>
+                  <p className="text-muted-foreground">{t('contact.successDesc')}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="glass-card p-8">
-                  <h3 className="mb-6 text-xl font-semibold text-foreground">
-                    Send us a message
-                  </h3>
+                  <h3 className="mb-6 text-xl font-semibold text-foreground">{t('contact.title')}</h3>
                   <div className="space-y-4">
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div>
-                        <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">Name</label>
-                        <Input id="name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="Your name" required className="bg-secondary/50" />
+                        <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">{t('contact.name')}</label>
+                        <Input id="name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required className="bg-secondary/50" />
                       </div>
                       <div>
-                        <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">Email</label>
-                        <Input id="email" type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="you@company.com" required className="bg-secondary/50" />
+                        <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">{t('contact.email')}</label>
+                        <Input id="email" type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required className="bg-secondary/50" />
                       </div>
                     </div>
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div>
-                        <label htmlFor="company" className="mb-2 block text-sm font-medium text-foreground">Company</label>
-                        <Input id="company" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} placeholder="Your company" className="bg-secondary/50" />
+                        <label htmlFor="company" className="mb-2 block text-sm font-medium text-foreground">{t('contact.company')}</label>
+                        <Input id="company" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} className="bg-secondary/50" />
                       </div>
                       <div>
-                        <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">Budget Range</label>
+                        <label htmlFor="orgType" className="mb-2 block text-sm font-medium text-foreground">{t('contact.orgType')}</label>
+                        <select
+                          id="orgType"
+                          value={formData.orgType}
+                          onChange={(e) => setFormData({ ...formData, orgType: e.target.value })}
+                          className="flex h-10 w-full rounded-md border border-input bg-secondary/50 px-3 py-2 text-sm text-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        >
+                          <option value="">—</option>
+                          <option value="public">{t('contact.orgType.public')}</option>
+                          <option value="enterprise">{t('contact.orgType.enterprise')}</option>
+                          <option value="startup">{t('contact.orgType.startup')}</option>
+                          <option value="ngo">{t('contact.orgType.ngo')}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <label htmlFor="country" className="mb-2 block text-sm font-medium text-foreground">{t('contact.country')}</label>
+                        <Input id="country" value={formData.country} onChange={(e) => setFormData({ ...formData, country: e.target.value })} className="bg-secondary/50" />
+                      </div>
+                      <div>
+                        <label htmlFor="need" className="mb-2 block text-sm font-medium text-foreground">{t('contact.need')}</label>
+                        <select
+                          id="need"
+                          value={formData.need}
+                          onChange={(e) => setFormData({ ...formData, need: e.target.value })}
+                          className="flex h-10 w-full rounded-md border border-input bg-secondary/50 px-3 py-2 text-sm text-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        >
+                          <option value="">—</option>
+                          <option value="ai">{t('contact.need.ai')}</option>
+                          <option value="fintech">{t('contact.need.fintech')}</option>
+                          <option value="govtech">{t('contact.need.govtech')}</option>
+                          <option value="other">{t('contact.need.other')}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <label htmlFor="timeline" className="mb-2 block text-sm font-medium text-foreground">{t('contact.timeline')}</label>
+                        <select
+                          id="timeline"
+                          value={formData.timeline}
+                          onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+                          className="flex h-10 w-full rounded-md border border-input bg-secondary/50 px-3 py-2 text-sm text-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        >
+                          <option value="">—</option>
+                          <option value="immediate">{t('contact.timeline.immediate')}</option>
+                          <option value="quarter">{t('contact.timeline.quarter')}</option>
+                          <option value="semester">{t('contact.timeline.semester')}</option>
+                          <option value="exploring">{t('contact.timeline.exploring')}</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label htmlFor="budget" className="mb-2 block text-sm font-medium text-foreground">{t('contact.budget')}</label>
                         <Input id="budget" value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} placeholder="e.g. €50K–€200K" className="bg-secondary/50" />
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">Message</label>
-                      <Textarea id="message" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Tell us about your project..." rows={5} required className="bg-secondary/50" />
+                      <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">{t('contact.message')}</label>
+                      <Textarea id="message" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} rows={4} required className="bg-secondary/50" />
                     </div>
                     <Button type="submit" variant="premium" size="lg" className="w-full" disabled={isSubmitting}>
                       {isSubmitting ? (
-                        <><Loader2 className="mr-2 h-5 w-5 animate-spin" />Sending...</>
+                        <><Loader2 className="mr-2 h-5 w-5 animate-spin" />{t('contact.sending')}</>
                       ) : (
-                        <><Send className="mr-2 h-5 w-5" />Send Message</>
+                        <><Send className="mr-2 h-5 w-5" />{t('contact.send')}</>
                       )}
                     </Button>
                   </div>

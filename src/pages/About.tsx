@@ -4,11 +4,11 @@ import { ArrowLeft, Globe, MapPin, Building, Calendar, Shield } from 'lucide-rea
 import { Button } from '@/components/ui/button';
 import logoMain from '@/assets/logo-main.png';
 
-const hubs = [
-  { region: 'Americas', location: 'Wyoming, USA', description: 'Corporate headquarters & legal entity' },
-  { region: 'Europe', location: 'Paris, France', description: 'GDPR/RGPD operations & EU partnerships' },
-  { region: 'Africa', location: 'Dakar, Senegal', description: 'GovTech deployments & digital sovereignty' },
-  { region: 'Middle East', location: 'Dubai, UAE', description: 'FinTech expansion & regional partnerships' },
+const regions = [
+  { region: 'Americas', location: 'United States', description: 'Corporate registration & US market coverage' },
+  { region: 'Europe', location: 'European Union', description: 'EU regulatory expertise & GDPR advisory' },
+  { region: 'Africa', location: 'West Africa', description: 'GovTech deployment focus & digital sovereignty initiatives' },
+  { region: 'Middle East', location: 'Gulf Region', description: 'FinTech expansion & regional partnerships' },
 ];
 
 const About = () => {
@@ -76,15 +76,15 @@ const About = () => {
           </div>
         </section>
 
-        {/* Global Hubs */}
+        {/* Regions Served */}
         <section className="bg-background-deep py-16 lg:py-24">
           <div className="section-container">
-            <h2 className="mb-4 text-center text-3xl font-bold text-foreground">Global Operations</h2>
-            <p className="mb-12 text-center text-muted-foreground">Four strategic hubs powering worldwide delivery</p>
+            <h2 className="mb-4 text-center text-3xl font-bold text-foreground">Regions Served</h2>
+            <p className="mb-12 text-center text-muted-foreground">Delivery & partnerships focus across four strategic regions</p>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {hubs.map((hub, i) => (
+              {regions.map((region, i) => (
                 <motion.div
-                  key={hub.region}
+                  key={region.region}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
@@ -92,11 +92,11 @@ const About = () => {
                   className="glass-card p-6 text-center"
                 >
                   <Globe className="mx-auto mb-3 h-8 w-8 text-primary" />
-                  <h3 className="mb-1 text-lg font-semibold text-foreground">{hub.region}</h3>
+                  <h3 className="mb-1 text-lg font-semibold text-foreground">{region.region}</h3>
                   <p className="mb-2 flex items-center justify-center gap-1 text-sm text-primary">
-                    <MapPin className="h-3 w-3" /> {hub.location}
+                    <MapPin className="h-3 w-3" /> {region.location}
                   </p>
-                  <p className="text-xs text-muted-foreground">{hub.description}</p>
+                  <p className="text-xs text-muted-foreground">{region.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -123,7 +123,7 @@ const About = () => {
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-xs text-muted-foreground">Registered Agent: Wyoming Registered Agent Services</p>
+            <p className="mt-4 text-xs text-muted-foreground">Millennium Capital Invest LLC — State of Wyoming, USA</p>
           </div>
         </section>
 

@@ -25,7 +25,7 @@ const PrivacyPolicy = () => {
       <main className="section-container py-16 lg:py-24">
         <div className="mx-auto max-w-3xl">
           <h1 className="mb-8 text-4xl font-bold text-foreground">Privacy Policy</h1>
-          <p className="mb-6 text-sm text-muted-foreground">Last updated: February 2026</p>
+          <p className="mb-6 text-sm text-muted-foreground">Last updated: July 2025</p>
 
           <div className="space-y-8 text-muted-foreground leading-relaxed">
             <section>

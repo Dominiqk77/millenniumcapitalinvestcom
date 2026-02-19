@@ -22,7 +22,7 @@ const TermsOfService = () => {
       <main className="section-container py-16 lg:py-24">
         <div className="mx-auto max-w-3xl">
           <h1 className="mb-8 text-4xl font-bold text-foreground">Terms of Service</h1>
-          <p className="mb-6 text-sm text-muted-foreground">Last updated: February 2026</p>
+          <p className="mb-6 text-sm text-muted-foreground">Last updated: July 2025</p>
 
           <div className="space-y-8 text-muted-foreground leading-relaxed">
             <section>
@@ -56,7 +56,6 @@ const TermsOfService = () => {
                 <strong className="text-foreground">Millennium Capital Invest LLC</strong><br />
                 State of Wyoming, United States<br />
                 Filed: July 17, 2025 — Entity ID: 2025-001724094<br />
-                Registered Agent: Wyoming Registered Agent Services<br />
                 Contact: contact@millenniumcapitalinvest.com
               </p>
             </section>
