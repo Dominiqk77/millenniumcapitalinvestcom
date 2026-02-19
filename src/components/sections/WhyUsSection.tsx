@@ -1,3 +1,4 @@
+/* WhyUsSection v2 */
 import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Globe, TrendingUp, Shield, LucideIcon } from 'lucide-react';
