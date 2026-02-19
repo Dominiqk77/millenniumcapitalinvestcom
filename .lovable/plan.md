@@ -1,178 +1,153 @@
 
-# Audit Complet + Plan de Rebuild -- Millennium Capital Invest
+
+# Plan de mise a jour complete — Institutional Lead Machine
 
 ---
 
-## PARTIE 1 : RAPPORT D'AUDIT
+## Vue d'ensemble
 
-### Ce qui fonctionne
-- Structure single-page avec scroll storytelling et sections bien organisees
-- Systeme bilingue FR/EN fonctionnel avec Zustand
-- Palette de couleurs deja alignee sur le logo (orange, coral, bleu, teal)
-- Composants glass-card, glow effects, animations framer-motion
-- SEO de base : Schema.org Organization, meta OG/Twitter, structured data
-- Sections completes : Hero, Trust, Divisions (sticky/crossfade), Why Us, Services, Features, Process, Portfolio, Pricing, Team, Contact
-- Dark mode premium coherent
-
-### Ce qui est casse
-- **Logo** : Le logo actuel dans le header/footer utilise `logo-dark.png` qui n'est PAS le nouveau logo fourni. Le favicon est un `.ico` generique
-- **Routes manquantes** : Pas de pages `/privacy`, `/terms`, `/about`, `/solutions` -- tout est en SPA single-page, les liens Privacy/Terms dans le footer pointent vers `#` (404 si acces direct)
-- **Sitemap** : Inexistant (`/sitemap.xml` = 404)
-- **Palette primaire** : Le `--primary` est un "Champagne Gold" (HSL 38 35% 65%) qui ne correspond PAS au logo fourni. Le logo a un aspect **argent/metallic** (#bfc2c7 a #e0e0e0), pas dore
-- **Contrast issues** : Le texte "With AI." en gradient dore sur fond sombre manque parfois de contraste
-- **DivisionsSection** : La section `min-h-[300vh]` avec sticky ne scroll pas correctement -- pas de scroll-trigger pour changer `activeIndex`, c'est uniquement au hover
-- **Formulaire contact** : `alert()` natif au submit, pas d'integration email/calendrier
-- **Images** : `hero-abstract.jpg`, `abstract-3d.jpg`, `govtech-visual.jpg` sont des placeholders potentiellement non optimises
-- **Performance** : 6 videos chargees simultanement (hero + divisions x3 + features + process) sans lazy-loading
-
-### Ce qui manque
-- Pages legales (Privacy Policy, Terms of Service) -- liens en 404
-- Pages secondaires : About/Leadership, Solutions, Products/Ecosystem (SenServices, SenAdmin, SenePay), Partnerships, Investor Deck (gated)
-- Sitemap XML + robots.txt optimise
-- Company facts verifiables (Wyoming filing July 17 2025, Entity ID)
-- Lead magnets : Deck investisseur gated, one-pager institutionnel
-- Formulaire de qualification intelligent (pas juste name/email/message)
-- Assistant IA conversationnel pour qualification leads
-- Sticky CTA "Book a call" visible pendant le scroll
-- Compteurs animes au scroll pour les KPIs (15+, 300%, 2.8M)
-- Schema.org LocalBusiness pour les locations multiples
-- OG image pour partage social
-- Canonical URL
-- Pages produits ecosystem avec disclaimers
-
-### Opportunites
-- Refonte palette : passer du "Champagne Gold" a "Silver Metallic" pour matcher le logo
-- Ajouter un funnel "Request Deck" gated avec email capture
-- Section "Company Facts" avec filing Wyoming verifiable
-- 3 personas B2B pour orienter le messaging
-- Lead nurturing structure (email sequences)
+Ce plan couvre 4 priorites : fact-checking/credibilite, creation des pages manquantes (Solutions, Products, Partnerships, Investor Deck), conversion/UX, et SEO. Toutes les pages seront bilingues FR/EN.
 
 ---
 
-## PARTIE 2 : BACKLOG PRIORISE
+## PRIORITE 0 — Corrections factuelles
 
-### P0 -- Critique (Impact eleve, effort moyen)
+### 1. Supprimer "Registered Agent" du site public
+- **Fichiers** : `src/pages/About.tsx` (ligne 126), `src/pages/TermsOfService.tsx` (section 6), `src/components/layout/Footer.tsx` (ligne legal)
+- Retirer toute mention de "Wyoming Registered Agent Services" ou "Company Sage Agents LLC"
+- Garder uniquement : "Millennium Capital Invest LLC — State of Wyoming, USA — Entity ID: 2025-001724094"
 
-| # | Tache | Effort |
-|---|-------|--------|
-| 1 | **Remplacer le logo** partout : Navigation, Footer, Favicon, OG image, meta tags | Faible |
-| 2 | **Corriger la palette** : Remplacer primary "Champagne Gold" par "Silver Metallic" (#bfc2c7-#e0e0e0), garder les 4 accents (orange, coral, bleu, teal) comme touches | Moyen |
-| 3 | **Creer pages Privacy Policy et Terms of Service** avec contenu placeholder structure | Moyen |
-| 4 | **Fixer la DivisionsSection** : Ajouter un vrai scroll-trigger qui change activeIndex en fonction de la position de scroll (pas juste hover) | Moyen |
-| 5 | **Optimiser le chargement videos** : Lazy-load, IntersectionObserver, ne charger que la video visible | Moyen |
+### 2. Reformuler "Global Operations / Hubs"
+- **Fichier** : `src/pages/About.tsx` (lignes 7-12, 79-104)
+- Remplacer le wording "hubs" par "Regions served" / "Delivery and partnerships focus"
+- Retirer les descriptions qui impliquent des bureaux physiques (ex: "Corporate headquarters", "GDPR operations")
+- Nouveau wording :
+  - Americas : "Corporate registration and US market coverage"
+  - Europe : "EU regulatory expertise and GDPR advisory"
+  - Africa : "GovTech deployment focus and digital sovereignty initiatives"
+  - Middle East : "FinTech expansion and regional partnerships"
 
-### P1 -- Important (Impact moyen-eleve)
-
-| # | Tache | Effort |
-|---|-------|--------|
-| 6 | **Ajouter page About/Leadership** avec profil CEO, vision, Company Facts (Wyoming filing) | Moyen |
-| 7 | **Creer page Solutions** avec sous-sections AI / FinTech / GovTech / Digital Transformation | Moyen |
-| 8 | **Creer page Products/Ecosystem** : SenServices, SenAdmin, SenePay (avec disclaimers) | Moyen |
-| 9 | **Formulaire contact intelligent** : champs qualification (budget, timeline, type projet) + confirmation visuelle (pas alert()) | Moyen |
-| 10 | **Sticky CTA flottant** "Book a call" visible apres scroll past hero | Faible |
-| 11 | **Compteurs animes** pour KPIs (15+, 300%, 2.8M, etc.) avec IntersectionObserver | Faible |
-| 12 | **Ajouter sitemap.xml** et optimiser robots.txt | Faible |
-| 13 | **Schema.org** : ajouter LocalBusiness pour chaque hub (Wyoming, Paris, Dakar, Dubai) | Faible |
-
-### P2 -- Nice to have
-
-| # | Tache | Effort |
-|---|-------|--------|
-| 14 | Page Partnerships (institutionnels + integrateurs + partenaires tech) | Moyen |
-| 15 | Page Investor Deck gated (formulaire email -> acces PDF) | Moyen |
-| 16 | Canonical URLs + OG images personnalisees par page | Faible |
-| 17 | Formulaire "light" email-only pour lead capture rapide | Faible |
-| 18 | Assistant IA conversationnel non-intrusif (qualification leads) | Eleve |
+### 3. Dates "Last updated"
+- **Fichiers** : `src/pages/PrivacyPolicy.tsx` (ligne 28), `src/pages/TermsOfService.tsx`
+- Remplacer "February 2026" par "2025" (date de creation de l'entite) ou un format ISO dynamique
 
 ---
 
-## PARTIE 3 : PLAN D'IMPLEMENTATION (Ce que je vais faire maintenant)
+## PRIORITE 1 — Creation des 4 pages manquantes
 
-Vu la taille du chantier, je vais me concentrer sur les **P0 + P1 essentiels** dans cette iteration :
+### A. `/solutions` — `src/pages/Solutions.tsx`
+- Page avec 4 piliers en sections alternees (fond clair/sombre)
+- Chaque pilier : icone, titre, description, 3 colonnes glass-card (What we deliver / Typical engagements / Security and compliance)
+- Les 4 piliers :
+  1. AI Architecture and Automation (couleur orange)
+  2. FinTech / RegTech Systems (couleur bleu)
+  3. GovTech Platforms (couleur teal)
+  4. Digital Transformation (couleur coral)
+- CTA en bas : Book a call + Request deck
+- Navigation et Footer inclus
 
-### Etape 1 -- Logo et Favicon
-- Copier le nouveau logo (`Millennium_Capital_Invest_-_Logo_Principal-removebg-preview.png`) dans `src/assets/` et `public/`
-- Mettre a jour `Navigation.tsx` et `Footer.tsx` pour utiliser le nouveau logo
-- Mettre a jour `index.html` pour le favicon (utiliser le logo en PNG)
-- Mettre a jour les meta OG
+### B. `/products` — `src/pages/Products.tsx`
+- Page "Ecosystem Overview" avec 3 cartes produits
+- **SenAdmin** (senadmin.com) — beta — teal
+- **SenePay** (sene-pay.com) — en developpement — bleu
+- **SenServices** (senservicesenegal.com) — beta — orange
+- Disclaimer visible en haut : "Initiative privee, non officielle, phase beta, partenariats institutionnels recherches"
+- Lien externe vers chaque produit
+- CTA : Partner with us + Book a call
 
-### Etape 2 -- Refonte palette Silver Metallic
-- Modifier `src/index.css` : changer `--primary` de "Champagne Gold" (HSL 38 35% 65%) vers "Silver Metallic" (HSL 210 8% 78%)
-- Ajuster `--accent`, `--ring`, `--glow-primary` en consequence
-- Garder les 4 couleurs d'accent du logo intactes (orange, coral, bleu, teal)
-- Mettre a jour les gradients `.gradient-text-primary`, `.gradient-text` pour l'aspect metallique
-- Ajuster les boutons `premium` pour utiliser un gradient metallique argent au lieu du dore
+### C. `/partnerships` — `src/pages/Partnerships.tsx`
+- 3 tracks en cartes glass :
+  1. Public Sector and Institutions (pilot vers deployment)
+  2. Integrators / ESN / Agencies (delivery partners)
+  3. FinTech and Infrastructure Partners (rails/KYC/risk/payments)
+- Chaque track : Who it's for / What partners get / What a pilot looks like
+- Formulaire dedie "Partner with us" : nom, org, email, pays, track d'interet, message
+- Confirmation visuelle premium (pas d'alert)
 
-### Etape 3 -- Design System Refresh
-- Mettre a jour les `glass-card` glow pour utiliser les accents argent
-- Revoir les badges, link-underline, divider-glow avec la nouvelle palette
-- S'assurer que les couleurs sectorielles (orange=AI, bleu=FinTech, teal=GovTech) restent distinctes et lisibles
-- Bouton "premium" : gradient argent -> blanc avec reflet metallique
-
-### Etape 4 -- Fix Divisions scroll-trigger
-- Ajouter `useScroll` + `useTransform` pour calculer `activeIndex` depuis `scrollYProgress` dans la section 300vh
-- Chaque tiers du scroll = une division active
-
-### Etape 5 -- Pages legales + Routes
-- Creer `src/pages/PrivacyPolicy.tsx` et `src/pages/TermsOfService.tsx` avec contenu structure placeholder
-- Ajouter les routes dans `App.tsx`
-- Mettre a jour les liens footer
-
-### Etape 6 -- About page + Company Facts
-- Creer `src/pages/About.tsx` avec profil CEO, vision, Company Facts (Wyoming LLC, filed July 17 2025, Entity ID 2025-001724094)
-- Ajouter la route
-
-### Etape 7 -- UX Improvements
-- Sticky CTA "Book a call" apres le hero
-- Remplacer `alert()` par un toast de confirmation dans le formulaire contact
-- Compteurs animes au scroll pour les KPIs
-- Lazy-loading des videos
-
-### Etape 8 -- SEO Finitions
-- Ajouter `public/sitemap.xml` 
-- Mettre a jour `robots.txt` avec sitemap reference
-- Ajouter canonical URLs dans index.html
-- Schema.org LocalBusiness pour les hubs
+### D. `/investor-deck` — `src/pages/InvestorDeck.tsx`
+- Page gated : formulaire de capture (nom, email, organisation, role, pays, secteur d'interet)
+- Apres submit : message "Thank you — we'll send it by email"
+- Pas de chiffres financiers inventes, pas de faux logos
 
 ---
 
-## PARTIE 4 : ARBORESCENCE CIBLE
+## PRIORITE 1 bis — Routing, Navigation, Footer
 
-```text
-/                          -> Home (scroll storytelling, conversion)
-/about                     -> About / Leadership / Company Facts
-/solutions                 -> Solutions (AI / FinTech / GovTech) [futur P2]
-/products                  -> Ecosystem SenServices/SenAdmin/SenePay [futur P2]
-/partnerships              -> Partnerships [futur P2]
-/investor-deck             -> Gated deck request [futur P2]
-/privacy                   -> Privacy Policy
-/terms                     -> Terms of Service
-/contact                   -> Contact (anchor redirect vers #contact)
-```
+### Routes (`src/App.tsx`)
+- Ajouter 4 routes : `/solutions`, `/products`, `/partnerships`, `/investor-deck`
+- Importer les 4 nouvelles pages
+
+### Navigation (`src/components/layout/Navigation.tsx`)
+- Ajouter "Solutions" et "Partnerships" dans les liens principaux du nav
+- Le nav utilise actuellement des ancres `#sections` ; les nouvelles pages sont des liens `<Link to="/solutions">` etc.
+
+### Footer (`src/components/layout/Footer.tsx`)
+- Mettre a jour les colonnes de liens :
+  - Company : About, Divisions, Process, Team
+  - Services : Solutions (lien /solutions), Products (/products), Partnerships (/partnerships)
+  - Resources : Case Studies, Pricing, Investor Deck (/investor-deck), Contact
+- Retirer "Registered Agent: Wyoming Registered Agent Services" du legal footer
 
 ---
 
-## Section technique
+## PRIORITE 1 ter — Traductions (`src/hooks/useLanguage.ts`)
 
-### Fichiers a creer
-- `src/pages/PrivacyPolicy.tsx`
-- `src/pages/TermsOfService.tsx`
-- `src/pages/About.tsx`
-- `src/components/layout/StickyCTA.tsx`
-- `public/sitemap.xml`
+Ajouter toutes les cles FR/EN pour :
+- Solutions page (~30 cles : titres, descriptions, deliverables, engagements, compliance)
+- Products page (~15 cles : titres, descriptions, disclaimer, status, CTA)
+- Partnerships page (~20 cles : titres, tracks, formulaire)
+- Investor Deck page (~15 cles : titre, formulaire, succes)
+- Navigation nouvelles entrees (solutions, partnerships)
 
-### Fichiers a modifier
-- `src/assets/` -- nouveau logo (copie)
-- `public/favicon.png` -- nouveau favicon
-- `index.html` -- favicon, canonical, meta
-- `src/index.css` -- palette Silver Metallic
-- `tailwind.config.ts` -- ajustements couleurs si necessaire
-- `src/components/layout/Navigation.tsx` -- nouveau logo
-- `src/components/layout/Footer.tsx` -- nouveau logo + liens routes
-- `src/components/sections/DivisionsSection.tsx` -- scroll-trigger fix
-- `src/components/sections/ContactSection.tsx` -- toast au lieu de alert()
-- `src/components/sections/WhyUsSection.tsx` -- compteurs animes
-- `src/components/ui/button.tsx` -- variant premium Silver
-- `src/App.tsx` -- nouvelles routes
-- `src/pages/Index.tsx` -- StickyCTA
-- `public/robots.txt` -- sitemap reference
+---
+
+## PRIORITE 2 — Conversion
+
+### Formulaire Contact intelligent (`src/components/sections/ContactSection.tsx`)
+- Ajouter les champs de qualification :
+  - Type d'organisation (select : Public / Enterprise / Startup / NGO)
+  - Pays
+  - Besoin (AI / FinTech / GovTech / Other)
+  - Timeline (select)
+  - Budget range (optionnel, deja present)
+- Garder la confirmation visuelle avec CheckCircle (deja en place)
+
+### Sticky CTA (`src/components/layout/StickyCTA.tsx`)
+- Ajouter un second bouton "Request Deck" sur desktop a cote de "Book a call"
+- Visible uniquement en `lg:` et plus
+
+---
+
+## PRIORITE 3 — SEO
+
+### Sitemap (`public/sitemap.xml`)
+- Ajouter les 4 nouvelles URLs :
+  - /solutions (priority 0.8, changefreq monthly)
+  - /products (priority 0.7, changefreq monthly)
+  - /partnerships (priority 0.7, changefreq monthly)
+  - /investor-deck (priority 0.6, changefreq monthly)
+
+### Meta par page
+- Chaque nouvelle page definit `document.title` dans un `useEffect`
+- Les meta OG/Twitter sont gerees dans `index.html` (SPA unique) — pas de changement necessaire sauf si SSR
+
+---
+
+## Fichiers a creer (4)
+- `src/pages/Solutions.tsx`
+- `src/pages/Products.tsx`
+- `src/pages/Partnerships.tsx`
+- `src/pages/InvestorDeck.tsx`
+
+## Fichiers a modifier (8)
+- `src/App.tsx` — 4 nouvelles routes
+- `src/hooks/useLanguage.ts` — ~80 nouvelles cles de traduction FR/EN
+- `src/components/layout/Navigation.tsx` — liens Solutions, Partnerships
+- `src/components/layout/Footer.tsx` — liens mis a jour + retrait registered agent
+- `src/pages/About.tsx` — retrait registered agent + reformulation hubs
+- `src/pages/PrivacyPolicy.tsx` — date coherente
+- `src/pages/TermsOfService.tsx` — retrait registered agent + date
+- `src/components/sections/ContactSection.tsx` — champs qualification
+- `src/components/layout/StickyCTA.tsx` — bouton Request Deck desktop
+- `public/sitemap.xml` — 4 nouvelles URLs
+
