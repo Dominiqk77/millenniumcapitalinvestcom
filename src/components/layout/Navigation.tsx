@@ -19,9 +19,9 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
+    { href: '/solutions', label: t('nav.solutions') },
     { href: '#divisions', label: t('nav.divisions') },
-    { href: '#services', label: t('nav.services') },
-    { href: '#process', label: t('nav.process') },
+    { href: '/partnerships', label: t('nav.partnerships') },
     { href: '#portfolio', label: t('nav.portfolio') },
     { href: '#pricing', label: t('nav.pricing') },
     { href: '#contact', label: t('nav.contact') },

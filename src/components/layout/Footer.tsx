@@ -15,16 +15,16 @@ const Footer = () => {
       { label: 'Team', href: '#team' },
     ],
     services: [
-      { label: 'GovTech Platforms', href: '#divisions' },
-      { label: 'FinTech Systems', href: '#divisions' },
-      { label: 'AI Architecture', href: '#divisions' },
+      { label: 'Solutions', href: '/solutions' },
+      { label: 'Products', href: '/products' },
+      { label: 'Partnerships', href: '/partnerships' },
       { label: 'Consulting', href: '#services' },
     ],
     resources: [
       { label: 'Case Studies', href: '#portfolio' },
       { label: 'Pricing', href: '#pricing' },
+      { label: 'Investor Deck', href: '/investor-deck' },
       { label: 'Contact', href: '#contact' },
-      { label: 'Investor Deck', href: '#contact' },
     ],
   };
 
@@ -100,12 +100,21 @@ const Footer = () => {
             <ul className="mt-4 space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    {link.label}
-                  </a>
+                  {link.href.startsWith('/') ? (
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -164,7 +173,7 @@ const Footer = () => {
 
         {/* Legal Note */}
         <p className="mt-6 text-center text-xs text-muted-foreground/60">
-          {t('footer.legal')} — Registered Agent: Wyoming Registered Agent Services
+          {t('footer.legal')} — Entity ID: 2025-001724094
         </p>
       </div>
     </footer>

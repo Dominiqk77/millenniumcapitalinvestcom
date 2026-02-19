@@ -6,9 +6,29 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://millenniumcapitalinvest.com/solutions</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://millenniumcapitalinvest.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://millenniumcapitalinvest.com/products</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://millenniumcapitalinvest.com/partnerships</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://millenniumcapitalinvest.com/investor-deck</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://millenniumcapitalinvest.com/privacy</loc>

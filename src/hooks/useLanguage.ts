@@ -19,7 +19,9 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.about': 'À propos',
     'nav.divisions': 'Divisions',
     'nav.bookCall': 'Réserver un appel',
-    
+    'nav.solutions': 'Solutions',
+    'nav.partnerships': 'Partenariats',
+
     // Hero
     'hero.line1': 'Build Smarter.',
     'hero.line2': 'Grow Faster.',
@@ -29,13 +31,13 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.cta.secondary': 'En savoir plus',
     'hero.users': '+4.7K Utilisateurs',
     'hero.scroll': 'Scroll pour découvrir',
-    
+
     // Trust Quote
     'trust.badge': 'TRANSFORMER LES DONNÉES EN DÉCISIONS.',
     'trust.quote': 'Nous établissons le pont entre les standards internationaux de sécurité (RGPD, Conformité US) et les défis d\'implémentation les plus complexes au monde — en délivrant une technologie qui garantit performance et souveraineté totale des données.',
     'trust.role': 'Co-Fondateur & Directeur Stratégie Institutionnelle & Partenariats GovTech Globaux',
     'trust.company': 'Millennium Capital Invest LLC',
-    
+
     // Divisions
     'divisions.title': 'Nos divisions',
     'divisions.subtitle': 'Trois couches d\'exécution. Un standard institutionnel.',
@@ -45,7 +47,7 @@ const translations: Record<Language, Record<string, string>> = {
     'divisions.fintech.desc': 'Paiements, automatisation de la conformité, réduction de la fraude, reporting et outils d\'intégrité financière.',
     'divisions.ai.title': 'Architecture AI & Automatisation',
     'divisions.ai.desc': 'Agents, workflows, intelligence décisionnelle et infrastructure AI scalable.',
-    
+
     // Why Choose Us
     'why.title': 'Pourquoi nous choisir ?',
     'why.subtitle': 'AI-Driven. Human-Focused.',
@@ -55,7 +57,7 @@ const translations: Record<Language, Record<string, string>> = {
     'why.roi.desc': 'Efficacité financière mesurable',
     'why.security.title': 'Souveraineté, Sécurité & RGPD',
     'why.security.desc': 'Conformité totale garantie',
-    
+
     // Services
     'services.title': 'Services',
     'services.subtitle': 'Solutions sur mesure pour chaque besoin',
@@ -63,7 +65,7 @@ const translations: Record<Language, Record<string, string>> = {
     'services.design': 'Design',
     'services.development': 'Développement',
     'services.marketing': 'SEO/Marketing',
-    
+
     // Features
     'features.title': 'Toutes les fonctionnalités en un seul endroit',
     'features.workflow': 'Moteur de Workflow Adaptatif',
@@ -78,7 +80,7 @@ const translations: Record<Language, Record<string, string>> = {
     'features.transparency.desc': 'Traçabilité complète des processus',
     'features.api': 'Interopérabilité via APIs Standardisées',
     'features.api.desc': 'Intégration universelle',
-    
+
     // Process
     'process.title': 'Notre processus simple & intelligent',
     'process.step1.title': 'Découverte & Cadrage Risques',
@@ -87,11 +89,11 @@ const translations: Record<Language, Record<string, string>> = {
     'process.step2.desc': 'Conception technique et intégrations',
     'process.step3.title': 'Déploiement, Formation & Reporting ROI',
     'process.step3.desc': 'Mise en production et mesure d\'impact',
-    
+
     // Case Studies
     'cases.title': 'Success Stories',
     'cases.subtitle': 'Résultats mesurables pour nos clients',
-    
+
     // Pricing
     'pricing.title': 'Tarifs transparents',
     'pricing.subtitle': 'Des solutions adaptées à votre échelle',
@@ -102,22 +104,170 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.yearly': 'Annuel',
     'pricing.contact': 'Nous contacter',
     'pricing.getStarted': 'Commencer',
-    
+
     // Team
     'team.title': 'Leadership',
     'team.operations': 'Opérations Globales',
-    
+
     // CTA
     'cta.title': 'Prêt à automatiser plus intelligemment ?',
     'cta.subtitle': 'Construisons le futur ensemble.',
     'cta.book': 'Réserver un appel gratuit',
-    'cta.deck': 'Demander le deck investisseur',
-    
+    'cta.deck': 'Demander le deck',
+
     // Footer
     'footer.legal': 'Société enregistrée au Wyoming, USA',
     'footer.rights': 'Tous droits réservés',
     'footer.privacy': 'Politique de confidentialité',
     'footer.terms': 'Conditions d\'utilisation',
+
+    // Contact Form
+    'contact.title': 'Envoyez-nous un message',
+    'contact.name': 'Nom',
+    'contact.email': 'Email',
+    'contact.company': 'Organisation',
+    'contact.orgType': 'Type d\'organisation',
+    'contact.orgType.public': 'Secteur public',
+    'contact.orgType.enterprise': 'Entreprise',
+    'contact.orgType.startup': 'Startup',
+    'contact.orgType.ngo': 'ONG / Association',
+    'contact.country': 'Pays',
+    'contact.need': 'Besoin principal',
+    'contact.need.ai': 'AI & Automatisation',
+    'contact.need.fintech': 'FinTech / RegTech',
+    'contact.need.govtech': 'GovTech / Souveraineté',
+    'contact.need.other': 'Autre',
+    'contact.timeline': 'Calendrier',
+    'contact.timeline.immediate': 'Immédiat (< 1 mois)',
+    'contact.timeline.quarter': 'Ce trimestre',
+    'contact.timeline.semester': 'Ce semestre',
+    'contact.timeline.exploring': 'En exploration',
+    'contact.budget': 'Budget estimé',
+    'contact.message': 'Message',
+    'contact.send': 'Envoyer',
+    'contact.sending': 'Envoi...',
+    'contact.success': 'Message envoyé !',
+    'contact.successDesc': 'Nous vous répondrons sous 24 heures.',
+
+    // Solutions Page
+    'solutions.title': 'Nos Solutions',
+    'solutions.subtitle': 'Quatre piliers technologiques au service de votre transformation.',
+    'solutions.deliver': 'Ce que nous délivrons',
+    'solutions.engagements': 'Engagements types',
+    'solutions.compliance': 'Sécurité & conformité',
+    'solutions.cta': 'Discutons de votre projet',
+    'solutions.ai.title': 'Architecture AI & Automatisation',
+    'solutions.ai.desc': 'Agents intelligents, workflows décisionnels et infrastructure AI scalable pour automatiser vos processus critiques.',
+    'solutions.ai.d1': 'Agents AI et assistants métier sur mesure',
+    'solutions.ai.d2': 'Pipelines de données et ETL intelligents',
+    'solutions.ai.d3': 'Modèles prédictifs et tableaux décisionnels',
+    'solutions.ai.d4': 'Automatisation de processus end-to-end',
+    'solutions.ai.e1': 'Pilote PoC (4-8 semaines)',
+    'solutions.ai.e2': 'Déploiement à l\'échelle',
+    'solutions.ai.e3': 'Managed AI ops',
+    'solutions.ai.c1': 'Données hébergées sous contrôle juridictionnel',
+    'solutions.ai.c2': 'Audit trail complet des décisions AI',
+    'solutions.ai.c3': 'Conformité RGPD / cadre éthique AI',
+    'solutions.fintech.title': 'Systèmes FinTech & RegTech',
+    'solutions.fintech.desc': 'Paiements, conformité automatisée, réduction de la fraude et outils d\'intégrité financière.',
+    'solutions.fintech.d1': 'Infrastructure de paiement et réconciliation',
+    'solutions.fintech.d2': 'Automatisation KYC / AML',
+    'solutions.fintech.d3': 'Moteurs de scoring et détection de fraude',
+    'solutions.fintech.d4': 'Reporting réglementaire automatisé',
+    'solutions.fintech.e1': 'Audit technique et roadmap',
+    'solutions.fintech.e2': 'Intégration rails de paiement',
+    'solutions.fintech.e3': 'Plateforme RegTech managée',
+    'solutions.fintech.c1': 'Standards PCI-DSS applicables',
+    'solutions.fintech.c2': 'Conformité réglementaire locale',
+    'solutions.fintech.c3': 'Chiffrement end-to-end',
+    'solutions.govtech.title': 'Plateformes GovTech',
+    'solutions.govtech.desc': 'Systèmes citoyens et administratifs souverains avec workflows auditables et contrôle juridictionnel.',
+    'solutions.govtech.d1': 'Portails citoyens et services administratifs',
+    'solutions.govtech.d2': 'Gestion documentaire et workflows d\'approbation',
+    'solutions.govtech.d3': 'Interopérabilité entre systèmes publics',
+    'solutions.govtech.d4': 'Tableaux de bord exécutifs',
+    'solutions.govtech.e1': 'Étude de faisabilité et cadrage',
+    'solutions.govtech.e2': 'Pilote institutionnel',
+    'solutions.govtech.e3': 'Déploiement national / régional',
+    'solutions.govtech.c1': 'Souveraineté des données garantie',
+    'solutions.govtech.c2': 'Hébergement juridictionnel dédié',
+    'solutions.govtech.c3': 'Audit et traçabilité complète',
+    'solutions.transform.title': 'Transformation Digitale',
+    'solutions.transform.desc': 'Delivery, change management et accompagnement stratégique pour vos initiatives de modernisation.',
+    'solutions.transform.d1': 'Diagnostic digital et feuille de route',
+    'solutions.transform.d2': 'Conduite du changement et formation',
+    'solutions.transform.d3': 'Intégration de systèmes legacy',
+    'solutions.transform.d4': 'Mesure d\'impact et reporting ROI',
+    'solutions.transform.e1': 'Workshop stratégique',
+    'solutions.transform.e2': 'Programme de transformation',
+    'solutions.transform.e3': 'Accompagnement continu',
+    'solutions.transform.c1': 'Méthodologies certifiées',
+    'solutions.transform.c2': 'Protection des données existantes',
+    'solutions.transform.c3': 'Gouvernance de projet transparente',
+
+    // Products Page
+    'products.title': 'Notre Écosystème',
+    'products.subtitle': 'Plateformes propriétaires conçues pour l\'Afrique de l\'Ouest et au-delà.',
+    'products.disclaimer': 'Ces plateformes sont des initiatives privées en phase de développement. Elles ne sont affiliées à aucun gouvernement. Des partenariats institutionnels sont activement recherchés.',
+    'products.visit': 'Visiter le site',
+    'products.beta': 'Beta',
+    'products.development': 'En développement',
+    'products.senadmin.title': 'SenAdmin',
+    'products.senadmin.desc': 'Plateforme de services administratifs digitaux — simplifier les démarches citoyennes au Sénégal.',
+    'products.senepay.title': 'SenePay',
+    'products.senepay.desc': 'Infrastructure de paiement mobile et transferts — rails financiers pour l\'Afrique de l\'Ouest.',
+    'products.senservices.title': 'SenServices',
+    'products.senservices.desc': 'Portail de services et d\'information — connecter les citoyens aux ressources locales.',
+    'products.cta': 'Intéressé par un partenariat sur ces plateformes ?',
+
+    // Partnerships Page
+    'partnerships.title': 'Partenariats',
+    'partnerships.subtitle': 'Trois modèles de collaboration pour accélérer l\'impact.',
+    'partnerships.track1.title': 'Secteur Public & Institutions',
+    'partnerships.track1.who': 'Ministères, agences gouvernementales, collectivités, organisations internationales.',
+    'partnerships.track1.get': 'Pilote technologique clé-en-main, accompagnement souveraineté, déploiement progressif.',
+    'partnerships.track1.pilot': 'Phase de cadrage → Pilote terrain → Évaluation d\'impact → Déploiement.',
+    'partnerships.track2.title': 'Intégrateurs & ESN',
+    'partnerships.track2.who': 'ESN, cabinets de conseil, agences digitales, intégrateurs systèmes.',
+    'partnerships.track2.get': 'Accès à nos plateformes en marque blanche, co-delivery sur projets complexes, formation technique.',
+    'partnerships.track2.pilot': 'Premier projet commun → Certification partenaire → Programme de co-delivery.',
+    'partnerships.track3.title': 'FinTech & Infrastructure',
+    'partnerships.track3.who': 'Fournisseurs de rails de paiement, KYC/AML, risk scoring, opérateurs telecom.',
+    'partnerships.track3.get': 'Intégration technique prioritaire, accès marché Afrique de l\'Ouest, co-développement produit.',
+    'partnerships.track3.pilot': 'Intégration technique → Test en conditions réelles → Lancement conjoint.',
+    'partnerships.whoFor': 'Pour qui',
+    'partnerships.whatGet': 'Ce que les partenaires obtiennent',
+    'partnerships.pilotLooks': 'À quoi ressemble un pilote',
+    'partnerships.formTitle': 'Devenir partenaire',
+    'partnerships.formName': 'Nom complet',
+    'partnerships.formOrg': 'Organisation',
+    'partnerships.formEmail': 'Email professionnel',
+    'partnerships.formCountry': 'Pays',
+    'partnerships.formTrack': 'Type de partenariat',
+    'partnerships.formMessage': 'Message',
+    'partnerships.formSubmit': 'Proposer un partenariat',
+    'partnerships.formSending': 'Envoi...',
+    'partnerships.formSuccess': 'Demande envoyée !',
+    'partnerships.formSuccessDesc': 'Notre équipe partenariats vous contactera sous 48 heures.',
+
+    // Investor Deck Page
+    'investor.title': 'Investor Deck',
+    'investor.subtitle': 'Accédez à notre présentation investisseur détaillée : stratégie, propriété intellectuelle et vision de croissance.',
+    'investor.note': 'Aucun chiffre financier non vérifié. Pas de faux logos ni de clients inventés.',
+    'investor.formName': 'Nom complet',
+    'investor.formEmail': 'Email professionnel',
+    'investor.formOrg': 'Organisation',
+    'investor.formRole': 'Rôle / Fonction',
+    'investor.formCountry': 'Pays',
+    'investor.formInterest': 'Secteur d\'intérêt',
+    'investor.formInterest.govtech': 'GovTech',
+    'investor.formInterest.fintech': 'FinTech',
+    'investor.formInterest.ai': 'Intelligence Artificielle',
+    'investor.formInterest.all': 'Tous les secteurs',
+    'investor.formSubmit': 'Demander le deck',
+    'investor.formSending': 'Envoi...',
+    'investor.success': 'Demande reçue !',
+    'investor.successDesc': 'Nous vous enverrons le deck investisseur par email sous 24 heures.',
   },
   en: {
     // Navigation
@@ -129,7 +279,9 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.about': 'About',
     'nav.divisions': 'Divisions',
     'nav.bookCall': 'Book a call',
-    
+    'nav.solutions': 'Solutions',
+    'nav.partnerships': 'Partnerships',
+
     // Hero
     'hero.line1': 'Build Smarter.',
     'hero.line2': 'Grow Faster.',
@@ -139,13 +291,13 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.cta.secondary': 'Learn More',
     'hero.users': '+4.7K Users',
     'hero.scroll': 'Scroll to explore',
-    
+
     // Trust Quote
     'trust.badge': 'TURNING DATA INTO DECISIONS.',
     'trust.quote': 'We bridge proven international security standards (GDPR/RGPD, US Compliance) with the world\'s most complex implementation challenges — delivering technology that guarantees performance and total data sovereignty.',
     'trust.role': 'Co-Founder & Director of Institutional Strategy & Global GovTech Partnerships',
     'trust.company': 'Millennium Capital Invest LLC',
-    
+
     // Divisions
     'divisions.title': 'Our divisions',
     'divisions.subtitle': 'Three execution layers. One institutional standard.',
@@ -155,7 +307,7 @@ const translations: Record<Language, Record<string, string>> = {
     'divisions.fintech.desc': 'Payments, compliance automation, fraud reduction, reporting, and financial integrity tooling.',
     'divisions.ai.title': 'AI Architecture & Automation',
     'divisions.ai.desc': 'Agents, workflows, decision intelligence, and scalable AI infrastructure.',
-    
+
     // Why Choose Us
     'why.title': 'Why choose us?',
     'why.subtitle': 'AI-Driven. Human-Focused.',
@@ -165,7 +317,7 @@ const translations: Record<Language, Record<string, string>> = {
     'why.roi.desc': 'Measurable financial efficiency',
     'why.security.title': 'Sovereignty, Security & GDPR',
     'why.security.desc': 'Total compliance guaranteed',
-    
+
     // Services
     'services.title': 'Services',
     'services.subtitle': 'Tailored solutions for every need',
@@ -173,7 +325,7 @@ const translations: Record<Language, Record<string, string>> = {
     'services.design': 'Design',
     'services.development': 'Development',
     'services.marketing': 'SEO/Marketing',
-    
+
     // Features
     'features.title': 'All features in one place',
     'features.workflow': 'Adaptive Workflow Engine',
@@ -188,7 +340,7 @@ const translations: Record<Language, Record<string, string>> = {
     'features.transparency.desc': 'Complete process traceability',
     'features.api': 'Interoperability via Standardized APIs',
     'features.api.desc': 'Universal integration',
-    
+
     // Process
     'process.title': 'Our simple & smart process',
     'process.step1.title': 'Discovery & Risk Framing',
@@ -197,11 +349,11 @@ const translations: Record<Language, Record<string, string>> = {
     'process.step2.desc': 'Technical design and integrations',
     'process.step3.title': 'Deployment, Training & ROI Reporting',
     'process.step3.desc': 'Production launch and impact measurement',
-    
+
     // Case Studies
     'cases.title': 'Success Stories',
     'cases.subtitle': 'Measurable results for our clients',
-    
+
     // Pricing
     'pricing.title': 'Transparent Pricing',
     'pricing.subtitle': 'Solutions scaled to your needs',
@@ -212,22 +364,170 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.yearly': 'Yearly',
     'pricing.contact': 'Contact Us',
     'pricing.getStarted': 'Get Started',
-    
+
     // Team
     'team.title': 'Leadership',
     'team.operations': 'Global Operations',
-    
+
     // CTA
     'cta.title': 'Ready to automate smarter?',
     'cta.subtitle': 'Let\'s build the future together.',
     'cta.book': 'Book a free call',
-    'cta.deck': 'Request investor deck',
-    
+    'cta.deck': 'Request deck',
+
     // Footer
     'footer.legal': 'Company registered in Wyoming, USA',
     'footer.rights': 'All rights reserved',
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms of Service',
+
+    // Contact Form
+    'contact.title': 'Send us a message',
+    'contact.name': 'Name',
+    'contact.email': 'Email',
+    'contact.company': 'Organization',
+    'contact.orgType': 'Organization type',
+    'contact.orgType.public': 'Public sector',
+    'contact.orgType.enterprise': 'Enterprise',
+    'contact.orgType.startup': 'Startup',
+    'contact.orgType.ngo': 'NGO / Nonprofit',
+    'contact.country': 'Country',
+    'contact.need': 'Primary need',
+    'contact.need.ai': 'AI & Automation',
+    'contact.need.fintech': 'FinTech / RegTech',
+    'contact.need.govtech': 'GovTech / Sovereignty',
+    'contact.need.other': 'Other',
+    'contact.timeline': 'Timeline',
+    'contact.timeline.immediate': 'Immediate (< 1 month)',
+    'contact.timeline.quarter': 'This quarter',
+    'contact.timeline.semester': 'This half-year',
+    'contact.timeline.exploring': 'Exploring',
+    'contact.budget': 'Estimated budget',
+    'contact.message': 'Message',
+    'contact.send': 'Send message',
+    'contact.sending': 'Sending...',
+    'contact.success': 'Message sent!',
+    'contact.successDesc': 'We\'ll get back to you within 24 hours.',
+
+    // Solutions Page
+    'solutions.title': 'Our Solutions',
+    'solutions.subtitle': 'Four technology pillars powering your transformation.',
+    'solutions.deliver': 'What we deliver',
+    'solutions.engagements': 'Typical engagements',
+    'solutions.compliance': 'Security & compliance',
+    'solutions.cta': 'Let\'s discuss your project',
+    'solutions.ai.title': 'AI Architecture & Automation',
+    'solutions.ai.desc': 'Intelligent agents, decision workflows, and scalable AI infrastructure to automate your critical processes.',
+    'solutions.ai.d1': 'Custom AI agents and business assistants',
+    'solutions.ai.d2': 'Intelligent data pipelines and ETL',
+    'solutions.ai.d3': 'Predictive models and decision dashboards',
+    'solutions.ai.d4': 'End-to-end process automation',
+    'solutions.ai.e1': 'PoC pilot (4-8 weeks)',
+    'solutions.ai.e2': 'Scale deployment',
+    'solutions.ai.e3': 'Managed AI ops',
+    'solutions.ai.c1': 'Data hosted under jurisdictional control',
+    'solutions.ai.c2': 'Complete AI decision audit trail',
+    'solutions.ai.c3': 'GDPR compliance / AI ethics framework',
+    'solutions.fintech.title': 'FinTech & RegTech Systems',
+    'solutions.fintech.desc': 'Payments, automated compliance, fraud reduction, and financial integrity tooling.',
+    'solutions.fintech.d1': 'Payment infrastructure and reconciliation',
+    'solutions.fintech.d2': 'KYC / AML automation',
+    'solutions.fintech.d3': 'Scoring engines and fraud detection',
+    'solutions.fintech.d4': 'Automated regulatory reporting',
+    'solutions.fintech.e1': 'Technical audit and roadmap',
+    'solutions.fintech.e2': 'Payment rails integration',
+    'solutions.fintech.e3': 'Managed RegTech platform',
+    'solutions.fintech.c1': 'Applicable PCI-DSS standards',
+    'solutions.fintech.c2': 'Local regulatory compliance',
+    'solutions.fintech.c3': 'End-to-end encryption',
+    'solutions.govtech.title': 'GovTech Platforms',
+    'solutions.govtech.desc': 'Sovereign citizen and administration systems with auditable workflows and jurisdictional control.',
+    'solutions.govtech.d1': 'Citizen portals and administrative services',
+    'solutions.govtech.d2': 'Document management and approval workflows',
+    'solutions.govtech.d3': 'Interoperability between public systems',
+    'solutions.govtech.d4': 'Executive dashboards',
+    'solutions.govtech.e1': 'Feasibility study and scoping',
+    'solutions.govtech.e2': 'Institutional pilot',
+    'solutions.govtech.e3': 'National / regional deployment',
+    'solutions.govtech.c1': 'Data sovereignty guaranteed',
+    'solutions.govtech.c2': 'Dedicated jurisdictional hosting',
+    'solutions.govtech.c3': 'Complete audit and traceability',
+    'solutions.transform.title': 'Digital Transformation',
+    'solutions.transform.desc': 'Delivery, change management, and strategic advisory for your modernization initiatives.',
+    'solutions.transform.d1': 'Digital diagnostic and roadmap',
+    'solutions.transform.d2': 'Change management and training',
+    'solutions.transform.d3': 'Legacy system integration',
+    'solutions.transform.d4': 'Impact measurement and ROI reporting',
+    'solutions.transform.e1': 'Strategic workshop',
+    'solutions.transform.e2': 'Transformation program',
+    'solutions.transform.e3': 'Ongoing advisory',
+    'solutions.transform.c1': 'Certified methodologies',
+    'solutions.transform.c2': 'Existing data protection',
+    'solutions.transform.c3': 'Transparent project governance',
+
+    // Products Page
+    'products.title': 'Our Ecosystem',
+    'products.subtitle': 'Proprietary platforms built for West Africa and beyond.',
+    'products.disclaimer': 'These platforms are private initiatives in development phase. They are not affiliated with any government. Institutional partnerships are actively sought.',
+    'products.visit': 'Visit website',
+    'products.beta': 'Beta',
+    'products.development': 'In development',
+    'products.senadmin.title': 'SenAdmin',
+    'products.senadmin.desc': 'Digital administrative services platform — simplifying citizen procedures in Senegal.',
+    'products.senepay.title': 'SenePay',
+    'products.senepay.desc': 'Mobile payment and transfer infrastructure — financial rails for West Africa.',
+    'products.senservices.title': 'SenServices',
+    'products.senservices.desc': 'Services and information portal — connecting citizens to local resources.',
+    'products.cta': 'Interested in partnering on these platforms?',
+
+    // Partnerships Page
+    'partnerships.title': 'Partnerships',
+    'partnerships.subtitle': 'Three collaboration models to accelerate impact.',
+    'partnerships.track1.title': 'Public Sector & Institutions',
+    'partnerships.track1.who': 'Ministries, government agencies, local authorities, international organizations.',
+    'partnerships.track1.get': 'Turnkey technology pilot, sovereignty advisory, progressive deployment.',
+    'partnerships.track1.pilot': 'Scoping phase → Field pilot → Impact assessment → Deployment.',
+    'partnerships.track2.title': 'Integrators & Agencies',
+    'partnerships.track2.who': 'IT services companies, consulting firms, digital agencies, system integrators.',
+    'partnerships.track2.get': 'White-label platform access, co-delivery on complex projects, technical training.',
+    'partnerships.track2.pilot': 'First joint project → Partner certification → Co-delivery program.',
+    'partnerships.track3.title': 'FinTech & Infrastructure',
+    'partnerships.track3.who': 'Payment rails providers, KYC/AML, risk scoring, telecom operators.',
+    'partnerships.track3.get': 'Priority technical integration, West Africa market access, product co-development.',
+    'partnerships.track3.pilot': 'Technical integration → Real-conditions testing → Joint launch.',
+    'partnerships.whoFor': 'Who it\'s for',
+    'partnerships.whatGet': 'What partners get',
+    'partnerships.pilotLooks': 'What a pilot looks like',
+    'partnerships.formTitle': 'Become a partner',
+    'partnerships.formName': 'Full name',
+    'partnerships.formOrg': 'Organization',
+    'partnerships.formEmail': 'Professional email',
+    'partnerships.formCountry': 'Country',
+    'partnerships.formTrack': 'Partnership type',
+    'partnerships.formMessage': 'Message',
+    'partnerships.formSubmit': 'Propose a partnership',
+    'partnerships.formSending': 'Sending...',
+    'partnerships.formSuccess': 'Request sent!',
+    'partnerships.formSuccessDesc': 'Our partnerships team will contact you within 48 hours.',
+
+    // Investor Deck Page
+    'investor.title': 'Investor Deck',
+    'investor.subtitle': 'Access our detailed investor presentation: strategy, intellectual property, and growth vision.',
+    'investor.note': 'No unverified financial figures. No fake logos or invented clients.',
+    'investor.formName': 'Full name',
+    'investor.formEmail': 'Professional email',
+    'investor.formOrg': 'Organization',
+    'investor.formRole': 'Role / Position',
+    'investor.formCountry': 'Country',
+    'investor.formInterest': 'Sector of interest',
+    'investor.formInterest.govtech': 'GovTech',
+    'investor.formInterest.fintech': 'FinTech',
+    'investor.formInterest.ai': 'Artificial Intelligence',
+    'investor.formInterest.all': 'All sectors',
+    'investor.formSubmit': 'Request the deck',
+    'investor.formSending': 'Sending...',
+    'investor.success': 'Request received!',
+    'investor.successDesc': 'We\'ll send the investor deck to your email within 24 hours.',
   },
 };
 
