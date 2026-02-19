@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
-import logoLight from '@/assets/logo-light.png';
-import logoDark from '@/assets/logo-dark.png';
+import logoMain from '@/assets/logo-main.png';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,7 +47,7 @@ const Navigation = () => {
           {/* Logo */}
           <a href="#" className="relative z-10 flex items-center gap-3 group">
             <motion.img 
-              src={logoDark} 
+              src={logoMain} 
               alt="Millennium Capital Invest" 
               className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" 
             />
