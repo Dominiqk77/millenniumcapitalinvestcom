@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Shield, CreditCard, Bot, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 
@@ -38,6 +38,16 @@ const DivisionsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const index = Math.min(Math.floor(latest * 3), 2);
+    setActiveIndex(index);
+  });
+
   return (
     <section
       id="divisions"
@@ -50,7 +60,6 @@ const DivisionsSection = () => {
           {divisions.map((division, index) => (
             <motion.div
               key={division.id}
-              initial={{ opacity: 0 }}
               animate={{ opacity: activeIndex === index ? 1 : 0 }}
               transition={{ duration: 0.8 }}
               className="absolute inset-0"
@@ -74,47 +83,29 @@ const DivisionsSection = () => {
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-24">
             {/* Left: Content */}
             <div className="flex flex-col justify-center">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary"
-              >
+              <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
                 {t('divisions.title')}
-              </motion.p>
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="mb-6 text-4xl font-bold text-foreground md:text-5xl"
-              >
+              </p>
+              <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
                 {t('divisions.subtitle')}
-              </motion.h2>
+              </h2>
 
               {/* Division Cards */}
               <div className="mt-8 space-y-4">
                 {divisions.map((division, index) => {
                   const Icon = division.icon;
                   const isActive = activeIndex === index;
-                  const colorClass = `text-${division.color}`;
-                  const bgClass = `bg-${division.color}/10`;
-                  const borderClass = isActive ? `border-${division.color}/50` : 'border-border/30';
 
                   return (
                     <motion.div
                       key={division.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      onMouseEnter={() => setActiveIndex(index)}
-                      className={`group cursor-pointer rounded-xl border p-6 transition-all duration-500 ${
-                        isActive
-                          ? `border-primary/50 bg-primary/5`
-                          : 'border-border/30 bg-secondary/20 hover:border-primary/30'
-                      }`}
+                      animate={{ 
+                        borderColor: isActive ? 'hsl(var(--primary) / 0.5)' : 'hsl(var(--border) / 0.3)',
+                        backgroundColor: isActive ? 'hsl(var(--primary) / 0.05)' : 'hsl(var(--secondary) / 0.2)',
+                      }}
+                      transition={{ duration: 0.5 }}
+                      onClick={() => setActiveIndex(index)}
+                      className="group cursor-pointer rounded-xl border p-6"
                     >
                       <div className="flex items-start gap-4">
                         <span className={`text-3xl font-bold ${isActive ? 'text-primary' : 'text-muted-foreground/40'}`}>
@@ -145,13 +136,7 @@ const DivisionsSection = () => {
 
             {/* Right: Visual */}
             <div className="hidden items-center justify-center lg:flex">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="relative aspect-square w-full max-w-lg"
-              >
+              <div className="relative aspect-square w-full max-w-lg">
                 {/* Decorative rings with brand colors */}
                 <div className="absolute inset-0 rounded-full border border-brand-orange/20 animate-pulse" />
                 <div className="absolute inset-8 rounded-full border border-brand-blue/20" />
@@ -170,7 +155,6 @@ const DivisionsSection = () => {
                     return (
                       <motion.div
                         key={division.id}
-                        initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ 
                           opacity: activeIndex === index ? 1 : 0,
                           scale: activeIndex === index ? 1 : 0.5
@@ -185,7 +169,7 @@ const DivisionsSection = () => {
                     );
                   })}
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Linkedin } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
-import logoLight from '@/assets/logo-light.png';
-import logoDark from '@/assets/logo-dark.png';
+import logoMain from '@/assets/logo-main.png';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -40,7 +39,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <a href="#" className="inline-flex items-center gap-3 group">
-              <img src={logoDark} alt="Millennium Capital Invest" className="h-12 w-auto transition-transform group-hover:scale-105" />
+              <img src={logoMain} alt="Millennium Capital Invest" className="h-12 w-auto transition-transform group-hover:scale-105" />
               <div>
                 <span className="block text-xl font-semibold text-foreground">
                   Millennium Capital Invest
@@ -141,13 +140,13 @@ const Footer = () => {
           </p>
           <div className="flex items-center gap-6">
             <a
-              href="#"
+              href="/privacy"
               className="text-sm text-muted-foreground transition-colors hover:text-primary"
             >
               {t('footer.privacy')}
             </a>
             <a
-              href="#"
+              href="/terms"
               className="text-sm text-muted-foreground transition-colors hover:text-primary"
             >
               {t('footer.terms')}
