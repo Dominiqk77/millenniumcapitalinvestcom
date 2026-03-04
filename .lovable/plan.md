@@ -1,153 +1,188 @@
 
 
-# Plan de mise a jour complete — Institutional Lead Machine
+# Plan d'Action : Refonte Premium + Portfolio Reel + Presentation Investisseurs
+
+Ce plan transforme le site en une vitrine ultra-premium prete pour la presentation investisseurs dans 1H. Tout en francais par defaut, suppression de toutes les videos, ajout d'animations tech futuristes, portfolio reel depuis dominiqkmendy.com, et correction du logo partout.
 
 ---
 
-## Vue d'ensemble
+## 1. Logo et Favicon — Partout
 
-Ce plan couvre 4 priorites : fact-checking/credibilite, creation des pages manquantes (Solutions, Products, Partnerships, Investor Deck), conversion/UX, et SEO. Toutes les pages seront bilingues FR/EN.
+**Fichiers** : `index.html`, `Navigation.tsx`, `Footer.tsx`, `public/favicon.png`
+
+- Copier le logo fourni (`user-uploads://...`) vers `public/favicon.png` et `src/assets/logo-main.png`
+- Verifier que `index.html` pointe bien vers `/favicon.png`
+- S'assurer que Navigation et Footer utilisent bien `logo-main.png` (deja fait mais a verifier)
+- Supprimer toute reference a Lovable dans le code (liens, badges, etc.)
+
+## 2. Supprimer TOUTES les videos
+
+**Fichiers** : `HeroSection.tsx`, `DivisionsSection.tsx`, `FeaturesSection.tsx`, `ProcessSection.tsx`
+
+- **HeroSection** : Supprimer le `<video>` et remplacer par un fond avec des elements illustratifs tech animes (particules, grille 3D, code flottant avec framer-motion)
+- **DivisionsSection** : Supprimer les 3 `<video>` du background, garder les glows animes
+- **FeaturesSection** : Supprimer le `<video>` background
+- **ProcessSection** : Supprimer le `<video>` background
+
+## 3. Hero Section — Ultra Futuriste Tech
+
+**Fichier** : `HeroSection.tsx`
+
+Remplacer la video par un arriere-plan genere en CSS/SVG avec :
+- Grille de points perspective animee (CSS grid dots avec opacity pulse)
+- Particules de code flottantes (`</>`, `{ }`, `AI`, `0101`) en mouvement avec framer-motion
+- Lignes de circuit animees (SVG paths avec stroke-dashoffset)
+- Gradient orbs animes (brand-orange, brand-blue, brand-teal) qui bougent lentement
+- Garder l'image `hero-abstract.jpg` en fond subtle avec opacity 0.15
+
+Le hero text reste en FR : "Construisez Plus Intelligemment. Croissez Plus Vite. Avec l'IA."
+
+## 4. Tout le contenu en Francais par defaut
+
+**Fichier** : `useLanguage.ts`
+
+- Le `language` par defaut est deja `'fr'` — OK
+- Verifier et corriger les contenus hardcodes en anglais dans les composants :
+  - `ServicesSection.tsx` : les features sont hardcodees en anglais (`'Brand Strategy & Positioning'`, etc.) — les passer en francais
+  - `PricingSection.tsx` : descriptions en anglais (`'Perfect for startups...'`, features en anglais) — tout passer en FR
+  - `ContactSection.tsx` : `'Schedule a 30-minute discovery call...'` et `'Schedule Now'` en anglais — FR
+  - `PortfolioSection.tsx` : tout le contenu est hardcode en anglais — FR
+  - `TeamSection.tsx` : bios en anglais — FR
+  - `HeroSection.tsx` : `'hero.line1'` = `'Build Smarter.'` meme en FR — changer en francais
+
+## 5. Portfolio reel depuis dominiqkmendy.com
+
+**Fichier** : `PortfolioSection.tsx`
+
+Remplacer les 4 case studies fictives par les projets reels verifies du fondateur :
+
+1. **SenServices** — Plateforme e-gouvernance Senegal
+   - Contexte : Simplifier les demarches administratives citoyennes au Senegal
+   - Action : Plateforme web React/Node.js avec automatisation administrative
+   - Resultat : 1000+ utilisateurs actifs en 3 mois, reduction 70% delais
+
+2. **Millennium Capital Invest** — Transformation digitale internationale
+   - Contexte : Direction strategique transformation digitale internationale
+   - Action : Pilotage de 250+ projets dans 15+ pays, integration AI
+   - Resultat : 45% croissance ROI portefeuille clients
+
+3. **Riad Royal Collection** — Marketing digital hotelier premium
+   - Contexte : Collection de riads luxe a Marrakech
+   - Action : 5 sites web premium + systeme reservation centralise + SEO multilingue
+   - Resultat : +75% reservations directes, +120% visibilite
+
+4. **Come And Go Ltd** — Plateforme tourisme digitale
+   - Contexte : Tour operateur specialise Maroc
+   - Action : Plateforme reservation + app mobile + CRM sur mesure
+   - Resultat : +40% ventes, app telechargee 25,000+ fois
+
+5. **Atlas Hospitality Consulting** — SaaS hotelier
+   - Contexte : Solutions numeriques pour l'hotellerie marocaine
+   - Action : Plateforme SaaS de gestion hoteliere + analytics yield management
+   - Resultat : 30+ etablissements adoptes, +40% RevPAR
+
+6. **Agro-Food Industrie** — Expansion agroalimentaire
+   - Contexte : Strategie marketing et management commercial
+   - Action : Equipe de 12 personnes, strategie digitale, expansion internationale
+   - Resultat : 2.5M EUR CA annuel, +65% leads, 3 nouveaux marches
+
+## 6. Team Section — Sans photo, avec Zineb
+
+**Fichier** : `TeamSection.tsx`
+
+- Supprimer le placeholder avatar/photo du fondateur
+- Ajouter **Dominiqk Mendy** — Fondateur & CEO — "Expert international en transformation digitale, IA et innovation technologique. 18+ ans d'experience multi-regionale."
+- Ajouter **Zineb FARES** — Co-fondatrice & RP — "Responsable des Relations Publiques et Partenariats Institutionnels chez Millennium Capital Invest."
+- Affichage : nom + role + bio courte en glass-card, sans image, design typographique premium
+
+## 7. Animations et effets tech futuristes
+
+**Fichiers** : `index.css`, `tailwind.config.ts`, nouveaux composants
+
+### Nouvelles animations CSS dans `index.css` :
+- `.tech-grid` : grille de points avec perspective et animation de vague
+- `.floating-code` : elements de code qui flottent avec opacity variable
+- `.circuit-lines` : lignes de circuit SVG animees
+- `.glow-orb` : orbes de couleur avec animation breathing
+- `.particle-field` : champ de particules CSS
+
+### Dans `tailwind.config.ts` :
+- Ajouter keyframes : `orbit`, `code-float`, `circuit-draw`, `matrix-rain`
+
+### Appliquer sur les sections :
+- **DivisionsSection** : remplacer les videos par des SVG de circuit animes avec les couleurs de la division active
+- **FeaturesSection** : ajouter un grid de points en fond au lieu de la video
+- **ProcessSection** : ajouter des lignes de connexion animees entre les etapes au lieu de la video
+- **WhyUsSection** : ajouter un effet de particules subtil en fond
+- **TrustSection** : ajouter un effet holographique subtil sur la citation
+
+## 8. Design Premium ameliore
+
+**Fichiers** : `index.css`, composants divers
+
+- Ajouter un effet `text-shadow` metallique sur les titres h1/h2
+- Ajouter des `border-gradient` animes sur les glass-cards au hover
+- Micro-interactions : scale 1.02 + glow au hover sur tous les CTA
+- Effet "shine" (bande lumineuse qui traverse) sur les boutons premium
+- Separateurs entre sections avec le gradient brand + pulse animation
+- Ajouter des elements decoratifs geometriques (hexagones, triangles) inspires du monogramme M du logo
+
+## 9. Corrections Pricing — Tout en FR
+
+**Fichier** : `PricingSection.tsx`
+
+- Passer les descriptions et features en francais via des cles de traduction
+- `/year` → `/an`, `/month` → `/mois`
+- `'Popular'` → `'Populaire'`
+- `'Custom'` → `'Sur mesure'`
+
+## 10. Services Section — FR
+
+**Fichier** : `ServicesSection.tsx`
+
+- Remplacer les features hardcodees en anglais par du francais :
+  - Branding : "Strategie de marque", "Systeme d'identite visuelle", "Charte graphique", "Naming & Messaging"
+  - Design : "Design UI/UX", "Design produit", "Design Systems", "Prototypage & Tests"
+  - Development : "Developpement Web & Mobile", "Architecture Cloud", "Developpement API", "DevOps & Infrastructure"
+  - Marketing : "SEO & Strategie de contenu", "Marketing de performance", "Analytics & Reporting", "Growth Hacking"
+
+## 11. Liens — Tout vers millenniumcapitalinvest.com
+
+**Fichiers** : `Footer.tsx`, `Navigation.tsx`, tous les composants avec des liens
+
+- S'assurer qu'aucun lien ne pointe vers lovable.app
+- Les liens internes en `/route` sont OK (SPA)
+- Le lien LinkedIn dans le footer pointe vers `https://linkedin.com` generique — le laisser ou le retirer
+
+## 12. SEO et meta
+
+**Fichier** : `index.html`
+
+- Mettre le title en francais : "Millennium Capital Invest | Construisez Plus Intelligemment. Croissez Plus Vite. Avec l'IA."
+- Meta description en francais
+- Canonical reste sur `https://millenniumcapitalinvest.com/`
 
 ---
 
-## PRIORITE 0 — Corrections factuelles
+## Fichiers a modifier (15+)
 
-### 1. Supprimer "Registered Agent" du site public
-- **Fichiers** : `src/pages/About.tsx` (ligne 126), `src/pages/TermsOfService.tsx` (section 6), `src/components/layout/Footer.tsx` (ligne legal)
-- Retirer toute mention de "Wyoming Registered Agent Services" ou "Company Sage Agents LLC"
-- Garder uniquement : "Millennium Capital Invest LLC — State of Wyoming, USA — Entity ID: 2025-001724094"
-
-### 2. Reformuler "Global Operations / Hubs"
-- **Fichier** : `src/pages/About.tsx` (lignes 7-12, 79-104)
-- Remplacer le wording "hubs" par "Regions served" / "Delivery and partnerships focus"
-- Retirer les descriptions qui impliquent des bureaux physiques (ex: "Corporate headquarters", "GDPR operations")
-- Nouveau wording :
-  - Americas : "Corporate registration and US market coverage"
-  - Europe : "EU regulatory expertise and GDPR advisory"
-  - Africa : "GovTech deployment focus and digital sovereignty initiatives"
-  - Middle East : "FinTech expansion and regional partnerships"
-
-### 3. Dates "Last updated"
-- **Fichiers** : `src/pages/PrivacyPolicy.tsx` (ligne 28), `src/pages/TermsOfService.tsx`
-- Remplacer "February 2026" par "2025" (date de creation de l'entite) ou un format ISO dynamique
-
----
-
-## PRIORITE 1 — Creation des 4 pages manquantes
-
-### A. `/solutions` — `src/pages/Solutions.tsx`
-- Page avec 4 piliers en sections alternees (fond clair/sombre)
-- Chaque pilier : icone, titre, description, 3 colonnes glass-card (What we deliver / Typical engagements / Security and compliance)
-- Les 4 piliers :
-  1. AI Architecture and Automation (couleur orange)
-  2. FinTech / RegTech Systems (couleur bleu)
-  3. GovTech Platforms (couleur teal)
-  4. Digital Transformation (couleur coral)
-- CTA en bas : Book a call + Request deck
-- Navigation et Footer inclus
-
-### B. `/products` — `src/pages/Products.tsx`
-- Page "Ecosystem Overview" avec 3 cartes produits
-- **SenAdmin** (senadmin.com) — beta — teal
-- **SenePay** (sene-pay.com) — en developpement — bleu
-- **SenServices** (senservicesenegal.com) — beta — orange
-- Disclaimer visible en haut : "Initiative privee, non officielle, phase beta, partenariats institutionnels recherches"
-- Lien externe vers chaque produit
-- CTA : Partner with us + Book a call
-
-### C. `/partnerships` — `src/pages/Partnerships.tsx`
-- 3 tracks en cartes glass :
-  1. Public Sector and Institutions (pilot vers deployment)
-  2. Integrators / ESN / Agencies (delivery partners)
-  3. FinTech and Infrastructure Partners (rails/KYC/risk/payments)
-- Chaque track : Who it's for / What partners get / What a pilot looks like
-- Formulaire dedie "Partner with us" : nom, org, email, pays, track d'interet, message
-- Confirmation visuelle premium (pas d'alert)
-
-### D. `/investor-deck` — `src/pages/InvestorDeck.tsx`
-- Page gated : formulaire de capture (nom, email, organisation, role, pays, secteur d'interet)
-- Apres submit : message "Thank you — we'll send it by email"
-- Pas de chiffres financiers inventes, pas de faux logos
-
----
-
-## PRIORITE 1 bis — Routing, Navigation, Footer
-
-### Routes (`src/App.tsx`)
-- Ajouter 4 routes : `/solutions`, `/products`, `/partnerships`, `/investor-deck`
-- Importer les 4 nouvelles pages
-
-### Navigation (`src/components/layout/Navigation.tsx`)
-- Ajouter "Solutions" et "Partnerships" dans les liens principaux du nav
-- Le nav utilise actuellement des ancres `#sections` ; les nouvelles pages sont des liens `<Link to="/solutions">` etc.
-
-### Footer (`src/components/layout/Footer.tsx`)
-- Mettre a jour les colonnes de liens :
-  - Company : About, Divisions, Process, Team
-  - Services : Solutions (lien /solutions), Products (/products), Partnerships (/partnerships)
-  - Resources : Case Studies, Pricing, Investor Deck (/investor-deck), Contact
-- Retirer "Registered Agent: Wyoming Registered Agent Services" du legal footer
-
----
-
-## PRIORITE 1 ter — Traductions (`src/hooks/useLanguage.ts`)
-
-Ajouter toutes les cles FR/EN pour :
-- Solutions page (~30 cles : titres, descriptions, deliverables, engagements, compliance)
-- Products page (~15 cles : titres, descriptions, disclaimer, status, CTA)
-- Partnerships page (~20 cles : titres, tracks, formulaire)
-- Investor Deck page (~15 cles : titre, formulaire, succes)
-- Navigation nouvelles entrees (solutions, partnerships)
-
----
-
-## PRIORITE 2 — Conversion
-
-### Formulaire Contact intelligent (`src/components/sections/ContactSection.tsx`)
-- Ajouter les champs de qualification :
-  - Type d'organisation (select : Public / Enterprise / Startup / NGO)
-  - Pays
-  - Besoin (AI / FinTech / GovTech / Other)
-  - Timeline (select)
-  - Budget range (optionnel, deja present)
-- Garder la confirmation visuelle avec CheckCircle (deja en place)
-
-### Sticky CTA (`src/components/layout/StickyCTA.tsx`)
-- Ajouter un second bouton "Request Deck" sur desktop a cote de "Book a call"
-- Visible uniquement en `lg:` et plus
-
----
-
-## PRIORITE 3 — SEO
-
-### Sitemap (`public/sitemap.xml`)
-- Ajouter les 4 nouvelles URLs :
-  - /solutions (priority 0.8, changefreq monthly)
-  - /products (priority 0.7, changefreq monthly)
-  - /partnerships (priority 0.7, changefreq monthly)
-  - /investor-deck (priority 0.6, changefreq monthly)
-
-### Meta par page
-- Chaque nouvelle page definit `document.title` dans un `useEffect`
-- Les meta OG/Twitter sont gerees dans `index.html` (SPA unique) — pas de changement necessaire sauf si SSR
-
----
-
-## Fichiers a creer (4)
-- `src/pages/Solutions.tsx`
-- `src/pages/Products.tsx`
-- `src/pages/Partnerships.tsx`
-- `src/pages/InvestorDeck.tsx`
-
-## Fichiers a modifier (8)
-- `src/App.tsx` — 4 nouvelles routes
-- `src/hooks/useLanguage.ts` — ~80 nouvelles cles de traduction FR/EN
-- `src/components/layout/Navigation.tsx` — liens Solutions, Partnerships
-- `src/components/layout/Footer.tsx` — liens mis a jour + retrait registered agent
-- `src/pages/About.tsx` — retrait registered agent + reformulation hubs
-- `src/pages/PrivacyPolicy.tsx` — date coherente
-- `src/pages/TermsOfService.tsx` — retrait registered agent + date
-- `src/components/sections/ContactSection.tsx` — champs qualification
-- `src/components/layout/StickyCTA.tsx` — bouton Request Deck desktop
-- `public/sitemap.xml` — 4 nouvelles URLs
+| Fichier | Actions |
+|---------|---------|
+| `public/favicon.png` | Copie du nouveau logo |
+| `index.html` | Meta FR, favicon |
+| `src/index.css` | Nouvelles animations tech, effets, separateurs |
+| `tailwind.config.ts` | Nouveaux keyframes (orbit, circuit, matrix) |
+| `src/components/sections/HeroSection.tsx` | Supprimer video, ajouter fond tech anime |
+| `src/components/sections/DivisionsSection.tsx` | Supprimer videos, SVG circuit |
+| `src/components/sections/FeaturesSection.tsx` | Supprimer video, grid dots |
+| `src/components/sections/ProcessSection.tsx` | Supprimer video, lignes animees |
+| `src/components/sections/PortfolioSection.tsx` | 6 projets reels en FR |
+| `src/components/sections/TeamSection.tsx` | Dominiqk + Zineb, sans photo |
+| `src/components/sections/ServicesSection.tsx` | Features en FR |
+| `src/components/sections/PricingSection.tsx` | Tout en FR |
+| `src/components/sections/ContactSection.tsx` | Textes en FR |
+| `src/components/sections/WhyUsSection.tsx` | Labels en FR |
+| `src/components/sections/TrustSection.tsx` | Effet holographique |
+| `src/hooks/useLanguage.ts` | Nouvelles cles FR, corriger hero lines |
+| `src/pages/Index.tsx` | Title FR |
 
