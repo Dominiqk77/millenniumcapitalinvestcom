@@ -1,4 +1,3 @@
-/* WhyUsSection v2 */
 import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Globe, TrendingUp, Shield, LucideIcon } from 'lucide-react';
@@ -52,7 +51,7 @@ const WhyUsCard = ({ titleKey, descKey, icon: Icon, statEnd, statSuffix, statLab
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.15 }}
       viewport={{ once: true }}
-      className="glass-card group relative overflow-hidden p-8 transition-all duration-500"
+      className="glass-card-glow group relative p-8 transition-all duration-500"
     >
       <div className={`absolute inset-0 ${bgColor} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
       <div className="relative z-10">
@@ -72,9 +71,9 @@ const WhyUsCard = ({ titleKey, descKey, icon: Icon, statEnd, statSuffix, statLab
 };
 
 const whyUsCards = [
-  { titleKey: 'why.experience.title', descKey: 'why.experience.desc', icon: Globe, statEnd: 15, statSuffix: '+', statLabel: 'Years', bgColor: 'bg-brand-blue/10', textColor: 'text-brand-blue' },
+  { titleKey: 'why.experience.title', descKey: 'why.experience.desc', icon: Globe, statEnd: 18, statSuffix: '+', statLabel: 'Ans', bgColor: 'bg-brand-blue/10', textColor: 'text-brand-blue' },
   { titleKey: 'why.roi.title', descKey: 'why.roi.desc', icon: TrendingUp, statEnd: 300, statSuffix: '%', statLabel: 'ROI', bgColor: 'bg-brand-orange/10', textColor: 'text-brand-orange' },
-  { titleKey: 'why.security.title', descKey: 'why.security.desc', icon: Shield, statEnd: 100, statSuffix: '%', statLabel: 'Compliance', bgColor: 'bg-brand-teal/10', textColor: 'text-brand-teal' },
+  { titleKey: 'why.security.title', descKey: 'why.security.desc', icon: Shield, statEnd: 100, statSuffix: '%', statLabel: 'Conformité', bgColor: 'bg-brand-teal/10', textColor: 'text-brand-teal' },
 ];
 
 const WhyUsSection = () => {
@@ -91,7 +90,7 @@ const WhyUsSection = () => {
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
             {t('why.title')}
           </motion.p>
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} viewport={{ once: true }} className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} viewport={{ once: true }} className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl metallic-text">
             {t('why.subtitle')}
           </motion.h2>
         </div>
