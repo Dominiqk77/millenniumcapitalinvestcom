@@ -19,16 +19,37 @@ const TrustSection = () => {
     <section
       id="trust"
       ref={sectionRef}
-      className="relative overflow-hidden bg-background-deep py-32 md:py-40"
+      className="relative overflow-hidden gradient-mesh-bg py-32 md:py-40"
     >
-      {/* Holographic background effect */}
-      <div className="absolute inset-0 holographic opacity-50" />
+      {/* Holographic background effect - intensified */}
+      <div className="absolute inset-0 holographic opacity-70" />
       
-      <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      {/* Floating particles */}
+      {[...Array(6)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute h-1 w-1 rounded-full bg-primary/30"
+          style={{
+            left: `${15 + i * 15}%`,
+            top: `${20 + (i % 3) * 25}%`,
+          }}
+          animate={{
+            y: [0, -30, 0],
+            opacity: [0.2, 0.6, 0.2],
+          }}
+          transition={{
+            duration: 4 + i,
+            repeat: Infinity,
+            delay: i * 0.5,
+          }}
+        />
+      ))}
+      
+      <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]" />
+        <div className="h-[600px] w-[600px] rounded-full bg-primary/8 blur-[150px]" />
       </div>
 
       <motion.div
@@ -63,7 +84,7 @@ const TrustSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="mb-12 text-2xl font-light leading-relaxed text-foreground md:text-3xl lg:text-4xl"
+            className="mb-12 text-2xl font-light leading-relaxed text-foreground md:text-3xl lg:text-4xl text-glow"
           >
             "{t('trust.quote')}"
           </motion.blockquote>

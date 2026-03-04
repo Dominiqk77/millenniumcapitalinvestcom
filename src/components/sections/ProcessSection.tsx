@@ -16,24 +16,10 @@ const ProcessSection = () => {
   const lineHeight = useTransform(scrollYProgress, [0.2, 0.8], ["0%", "100%"]);
 
   return (
-    <section id="process" ref={sectionRef} className="relative overflow-hidden bg-background-deep py-24 md:py-32">
-      {/* Tech grid instead of video */}
-      <div className="absolute inset-0 tech-grid opacity-15" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background-deep via-background-deep/90 to-background-deep" />
-
-      {/* Animated connection lines */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" xmlns="http://www.w3.org/2000/svg">
-        <motion.path
-          d="M50%,200 L50%,400 L50%,600"
-          fill="none"
-          stroke="hsl(var(--primary) / 0.3)"
-          strokeWidth="1"
-          strokeDasharray="8 4"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </svg>
+    <section id="process" ref={sectionRef} className="relative overflow-hidden gradient-mesh-bg py-24 md:py-32">
+      {/* Tech grid */}
+      <div className="absolute inset-0 tech-grid opacity-20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/40" />
 
       <div className="section-container relative z-10">
         <div className="mb-20 text-center">
@@ -42,7 +28,7 @@ const ProcessSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl metallic-text"
+            className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl metallic-text text-glow"
           >
             {t('process.title')}
           </motion.h2>
@@ -50,7 +36,7 @@ const ProcessSection = () => {
 
         <div className="relative mx-auto max-w-4xl">
           <div className="absolute left-8 top-0 hidden h-full w-px bg-border/30 md:left-1/2 md:block">
-            <motion.div style={{ height: lineHeight }} className="w-full bg-gradient-to-b from-primary via-primary to-primary/20" />
+            <motion.div style={{ height: lineHeight }} className="w-full bg-gradient-to-b from-brand-orange via-primary to-brand-teal" />
           </div>
 
           <div className="space-y-12 md:space-y-24">

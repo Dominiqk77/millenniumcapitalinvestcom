@@ -15,10 +15,10 @@ const FeaturesSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative overflow-hidden bg-background py-24 md:py-32">
-      {/* Tech grid background instead of video */}
-      <div className="absolute inset-0 tech-grid opacity-20" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background" />
+    <section className="relative overflow-hidden gradient-mesh-bg py-24 md:py-32">
+      {/* Tech grid background */}
+      <div className="absolute inset-0 tech-grid opacity-25" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/60" />
 
       <div className="section-container relative z-10">
         <div className="mb-16 text-center">
@@ -27,7 +27,7 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl metallic-text"
+            className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl metallic-text text-glow"
           >
             {t('features.title')}
           </motion.h2>
@@ -47,7 +47,7 @@ const FeaturesSection = () => {
               >
                 <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="relative z-10">
-                  <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-3 transition-colors group-hover:bg-primary/20">
+                  <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-3 transition-all group-hover:bg-primary/20 group-hover:neon-glow-blue">
                     <Icon className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="mb-2 text-lg font-semibold text-foreground">{t(feature.titleKey)}</h3>
