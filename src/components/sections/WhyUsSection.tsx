@@ -80,8 +80,9 @@ const WhyUsSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative overflow-hidden bg-background py-24 md:py-32">
-      <div className="absolute inset-0 opacity-40">
+    <section className="relative overflow-hidden gradient-mesh-bg py-24 md:py-32">
+      <div className="absolute inset-0 tech-grid opacity-15" />
+      <div className="absolute inset-0 opacity-50">
         <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-brand-orange/10 blur-[150px]" />
         <div className="absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full bg-brand-blue/10 blur-[150px]" />
       </div>
@@ -90,7 +91,7 @@ const WhyUsSection = () => {
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
             {t('why.title')}
           </motion.p>
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} viewport={{ once: true }} className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl metallic-text">
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} viewport={{ once: true }} className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl metallic-text text-glow">
             {t('why.subtitle')}
           </motion.h2>
         </div>
