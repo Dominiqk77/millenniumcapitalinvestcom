@@ -1,40 +1,100 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Users, Sparkles } from 'lucide-react';
+import { ArrowDown, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-abstract.jpg';
+
+const floatingElements = [
+  { text: '</>', x: '10%', y: '20%', delay: 0, duration: 7 },
+  { text: '{ }', x: '85%', y: '15%', delay: 1, duration: 9 },
+  { text: 'AI', x: '75%', y: '70%', delay: 2, duration: 6 },
+  { text: '0101', x: '15%', y: '75%', delay: 0.5, duration: 8 },
+  { text: '/**/', x: '90%', y: '45%', delay: 1.5, duration: 10 },
+  { text: '=>', x: '5%', y: '50%', delay: 3, duration: 7 },
+  { text: '[ ]', x: '60%', y: '85%', delay: 2.5, duration: 9 },
+  { text: 'fn()', x: '40%', y: '10%', delay: 0.8, duration: 8 },
+];
 
 const HeroSection = () => {
   const { t } = useLanguage();
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      {/* Background Image with Video Overlay */}
-      <div className="absolute inset-0">
-        <img 
-          src={heroImage} 
-          alt="" 
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
-          style={{ mixBlendMode: 'screen' }}
+      {/* Tech Grid Background */}
+      <div className="absolute inset-0 tech-grid opacity-40" />
+      
+      {/* Animated gradient orbs */}
+      <motion.div
+        animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute left-1/4 top-1/4 h-[500px] w-[500px] rounded-full bg-brand-orange/8 blur-[180px]"
+      />
+      <motion.div
+        animate={{ x: [0, -40, 0], y: [0, 30, 0] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute right-1/4 bottom-1/4 h-[500px] w-[500px] rounded-full bg-brand-blue/8 blur-[180px]"
+      />
+      <motion.div
+        animate={{ x: [0, 20, 0], y: [0, -40, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-brand-teal/6 blur-[150px]"
+      />
+
+      {/* Floating code elements */}
+      {floatingElements.map((el, i) => (
+        <motion.span
+          key={i}
+          initial={{ opacity: 0 }}
+          animate={{ 
+            opacity: [0, 0.15, 0.08, 0.15, 0],
+            y: [0, -30, -15, -40, -60],
+          }}
+          transition={{ 
+            duration: el.duration, 
+            repeat: Infinity, 
+            delay: el.delay,
+            ease: "easeInOut"
+          }}
+          className="absolute font-mono text-sm text-primary/15 pointer-events-none select-none"
+          style={{ left: el.x, top: el.y }}
         >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
-        </video>
-      </div>
+          {el.text}
+        </motion.span>
+      ))}
+
+      {/* Circuit lines SVG */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+        <motion.path
+          d="M0,300 Q200,250 400,300 T800,280"
+          fill="none"
+          stroke="hsl(210 8% 78% / 0.08)"
+          strokeWidth="1"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
+        />
+        <motion.path
+          d="M100,500 Q400,450 700,500 T1200,480"
+          fill="none"
+          stroke="hsl(25 95% 55% / 0.06)"
+          strokeWidth="1"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 4, delay: 1, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
+        />
+        <motion.path
+          d="M200,100 Q500,150 800,100 T1400,120"
+          fill="none"
+          stroke="hsl(210 85% 50% / 0.06)"
+          strokeWidth="1"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 3.5, delay: 0.5, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
+        />
+      </svg>
 
       {/* Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/60 to-background" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/70" />
-      
-      {/* Brand color glow effects */}
-      <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-brand-orange/10 blur-[150px]" />
-      <div className="absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full bg-brand-blue/10 blur-[150px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/50 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/60" />
 
       {/* Content */}
       <div className="section-container relative z-10 py-32">
@@ -61,7 +121,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mb-6 text-5xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl"
+            className="mb-6 text-5xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl metallic-text"
           >
             <span className="block">{t('hero.line1')}</span>
             <span className="block">{t('hero.line2')}</span>
@@ -87,7 +147,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
-            <Button variant="premium" size="xl" asChild className="min-w-[200px]">
+            <Button variant="premium" size="xl" asChild className="min-w-[200px] btn-shine">
               <a href="#contact">{t('hero.cta.primary')}</a>
             </Button>
             <Button variant="glass" size="xl" asChild className="min-w-[200px]">
@@ -104,7 +164,7 @@ const HeroSection = () => {
           >
             <span className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-brand-teal animate-pulse" />
-              RGPD Compliant
+              RGPD
             </span>
             <span className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-brand-blue animate-pulse" />
@@ -112,7 +172,7 @@ const HeroSection = () => {
             </span>
             <span className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-brand-orange animate-pulse" />
-              €2.8M IP Value
+              {t('hero.ip')}
             </span>
           </motion.div>
         </div>

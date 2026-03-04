@@ -10,53 +10,50 @@ const plans = [
     nameKey: 'pricing.starter',
     monthlyPrice: 2500,
     yearlyPrice: 25000,
-    description: 'Perfect for startups and small projects',
+    description: 'Idéal pour les startups et projets initiaux',
     features: [
-      'Initial consultation & discovery',
-      'Basic architecture design',
-      'Up to 2 integrations',
-      'Standard support (48h)',
-      '3 months warranty',
+      'Consultation initiale & découverte',
+      'Architecture de base',
+      'Jusqu\'à 2 intégrations',
+      'Support standard (48h)',
+      'Garantie 3 mois',
     ],
     highlighted: false,
-    accentColor: 'brand-blue',
   },
   {
     id: 'pro',
     nameKey: 'pricing.pro',
     monthlyPrice: 7500,
     yearlyPrice: 75000,
-    description: 'For growing businesses with complex needs',
+    description: 'Pour les entreprises en croissance avec des besoins complexes',
     features: [
-      'Everything in Starter',
-      'Advanced architecture & scaling',
-      'Up to 10 integrations',
-      'Priority support (24h)',
-      'AI-powered analytics',
-      '12 months warranty',
-      'Dedicated project manager',
+      'Tout le plan Starter',
+      'Architecture avancée & scalabilité',
+      'Jusqu\'à 10 intégrations',
+      'Support prioritaire (24h)',
+      'Analytics propulsés par l\'IA',
+      'Garantie 12 mois',
+      'Chef de projet dédié',
     ],
     highlighted: true,
-    accentColor: 'brand-orange',
   },
   {
     id: 'enterprise',
     nameKey: 'pricing.enterprise',
     monthlyPrice: null,
     yearlyPrice: null,
-    description: 'Custom solutions for large organizations',
+    description: 'Solutions sur mesure pour les grandes organisations',
     features: [
-      'Everything in Pro',
-      'Unlimited integrations',
-      'White-label solutions',
-      '24/7 premium support',
-      'On-premise deployment',
-      'SLA guarantees',
-      'Executive advisory',
-      'Custom compliance',
+      'Tout le plan Pro',
+      'Intégrations illimitées',
+      'Solutions en marque blanche',
+      'Support premium 24/7',
+      'Déploiement on-premise',
+      'SLA garanti',
+      'Advisory exécutif',
+      'Conformité sur mesure',
     ],
     highlighted: false,
-    accentColor: 'brand-teal',
   },
 ];
 
@@ -66,15 +63,11 @@ const PricingSection = () => {
 
   return (
     <section id="pricing" className="relative overflow-hidden bg-background-deep py-24 md:py-32">
-      {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-primary/5 blur-[150px]" />
-        <div className="absolute left-1/4 bottom-1/4 h-[400px] w-[400px] rounded-full bg-brand-blue/5 blur-[120px]" />
-        <div className="absolute right-1/4 top-1/4 h-[400px] w-[400px] rounded-full bg-brand-orange/5 blur-[120px]" />
       </div>
 
       <div className="section-container relative z-10">
-        {/* Header */}
         <div className="mb-12 text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -90,12 +83,11 @@ const PricingSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="mb-8 text-3xl font-bold text-foreground md:text-4xl lg:text-5xl"
+            className="mb-8 text-3xl font-bold text-foreground md:text-4xl lg:text-5xl metallic-text"
           >
             {t('pricing.subtitle')}
           </motion.h2>
 
-          {/* Toggle */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -106,9 +98,7 @@ const PricingSection = () => {
             <button
               onClick={() => setIsYearly(false)}
               className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${
-                !isYearly
-                  ? 'bg-primary text-primary-foreground shadow-lg'
-                  : 'text-muted-foreground hover:text-foreground'
+                !isYearly ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-foreground'
               }`}
             >
               {t('pricing.monthly')}
@@ -116,9 +106,7 @@ const PricingSection = () => {
             <button
               onClick={() => setIsYearly(true)}
               className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${
-                isYearly
-                  ? 'bg-primary text-primary-foreground shadow-lg'
-                  : 'text-muted-foreground hover:text-foreground'
+                isYearly ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-foreground'
               }`}
             >
               {t('pricing.yearly')}
@@ -127,7 +115,6 @@ const PricingSection = () => {
           </motion.div>
         </div>
 
-        {/* Plans Grid */}
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
           {plans.map((plan, index) => (
             <motion.div
@@ -136,41 +123,33 @@ const PricingSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`glass-card relative overflow-hidden p-6 transition-all duration-500 ${
-                plan.highlighted ? 'ring-2 ring-primary scale-[1.02]' : 'hover:border-primary/30'
+              className={`glass-card-glow relative p-6 transition-all duration-500 ${
+                plan.highlighted ? 'ring-2 ring-primary scale-[1.02]' : ''
               }`}
             >
-              {/* Popular Badge */}
               {plan.highlighted && (
                 <div className="absolute -right-12 top-8 rotate-45 bg-gradient-to-r from-brand-orange to-brand-coral px-14 py-1.5 text-xs font-bold text-white shadow-lg">
                   <Star className="mr-1 inline h-3 w-3" />
-                  Popular
+                  Populaire
                 </div>
               )}
 
-              {/* Plan Name */}
-              <h3 className="mb-2 text-xl font-semibold text-foreground">
-                {t(plan.nameKey)}
-              </h3>
+              <h3 className="mb-2 text-xl font-semibold text-foreground">{t(plan.nameKey)}</h3>
               <p className="mb-6 text-sm text-muted-foreground">{plan.description}</p>
 
-              {/* Price */}
               <div className="mb-6">
                 {plan.monthlyPrice !== null ? (
                   <>
                     <span className="text-4xl font-bold text-foreground">
                       €{isYearly ? plan.yearlyPrice?.toLocaleString() : plan.monthlyPrice.toLocaleString()}
                     </span>
-                    <span className="text-muted-foreground">
-                      /{isYearly ? 'year' : 'month'}
-                    </span>
+                    <span className="text-muted-foreground">/{isYearly ? 'an' : 'mois'}</span>
                   </>
                 ) : (
-                  <span className="text-3xl font-bold gradient-brand">Custom</span>
+                  <span className="text-3xl font-bold gradient-brand">Sur mesure</span>
                 )}
               </div>
 
-              {/* Features */}
               <ul className="mb-8 space-y-3">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
@@ -180,12 +159,7 @@ const PricingSection = () => {
                 ))}
               </ul>
 
-              {/* CTA */}
-              <Button
-                variant={plan.highlighted ? 'premium' : 'outline'}
-                className="w-full"
-                asChild
-              >
+              <Button variant={plan.highlighted ? 'premium' : 'outline'} className="w-full btn-shine" asChild>
                 <a href="#contact">
                   {plan.monthlyPrice !== null ? t('pricing.getStarted') : t('pricing.contact')}
                 </a>

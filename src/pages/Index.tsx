@@ -16,7 +16,7 @@ import ContactSection from '@/components/sections/ContactSection';
 
 const Index = () => {
   useEffect(() => {
-    document.title = 'Millennium Capital Invest | Build Smarter. Grow Faster. With AI.';
+    document.title = 'Millennium Capital Invest | Construisez Plus Intelligemment. Avec l\'IA.';
   }, []);
 
   return (
@@ -25,15 +25,25 @@ const Index = () => {
       <StickyCTA />
       <main>
         <HeroSection />
+        <div className="section-separator" />
         <TrustSection />
+        <div className="section-separator" />
         <DivisionsSection />
+        <div className="section-separator" />
         <WhyUsSection />
+        <div className="section-separator" />
         <ServicesSection />
+        <div className="section-separator" />
         <FeaturesSection />
+        <div className="section-separator" />
         <ProcessSection />
+        <div className="section-separator" />
         <PortfolioSection />
+        <div className="section-separator" />
         <PricingSection />
+        <div className="section-separator" />
         <TeamSection />
+        <div className="section-separator" />
         <ContactSection />
       </main>
       <Footer />

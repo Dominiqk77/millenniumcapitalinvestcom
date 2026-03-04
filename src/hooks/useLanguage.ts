@@ -23,24 +23,25 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.partnerships': 'Partenariats',
 
     // Hero
-    'hero.line1': 'Build Smarter.',
-    'hero.line2': 'Grow Faster.',
-    'hero.line3': 'With AI.',
-    'hero.subtitle': 'Nous concevons et déployons des plateformes AI, FinTech et GovTech de nouvelle génération pour les environnements à enjeux critiques — de la conformité financière américaine à la souveraineté numérique africaine. Notre propriété intellectuelle, valorisée à €2.8M, génère un ROI institutionnel mesurable.',
-    'hero.cta.primary': 'Démarrer',
-    'hero.cta.secondary': 'En savoir plus',
-    'hero.users': '+4.7K Utilisateurs',
-    'hero.scroll': 'Scroll pour découvrir',
+    'hero.line1': 'Construisez',
+    'hero.line2': 'Plus Intelligemment.',
+    'hero.line3': 'Avec l\'IA.',
+    'hero.subtitle': 'Nous concevons et déployons des plateformes AI, FinTech et GovTech de nouvelle génération pour les environnements à enjeux critiques — de la conformité financière américaine à la souveraineté numérique africaine.',
+    'hero.cta.primary': 'Démarrer un projet',
+    'hero.cta.secondary': 'Découvrir nos divisions',
+    'hero.users': 'Entreprises accompagnées',
+    'hero.scroll': 'Découvrir',
+    'hero.ip': 'PI valorisée €2.8M',
 
     // Trust Quote
     'trust.badge': 'TRANSFORMER LES DONNÉES EN DÉCISIONS.',
     'trust.quote': 'Nous établissons le pont entre les standards internationaux de sécurité (RGPD, Conformité US) et les défis d\'implémentation les plus complexes au monde — en délivrant une technologie qui garantit performance et souveraineté totale des données.',
-    'trust.role': 'Co-Fondateur & Directeur Stratégie Institutionnelle & Partenariats GovTech Globaux',
+    'trust.role': 'Co-Fondateur & Directeur Stratégie Institutionnelle',
     'trust.company': 'Millennium Capital Invest LLC',
 
     // Divisions
     'divisions.title': 'Nos divisions',
-    'divisions.subtitle': 'Trois couches d\'exécution. Un standard institutionnel.',
+    'divisions.subtitle': 'Trois piliers d\'exécution. Un standard institutionnel.',
     'divisions.govtech.title': 'Plateformes GovTech Souveraines',
     'divisions.govtech.desc': 'Déployer des systèmes citoyens et administratifs sécurisés avec des workflows auditables et un contrôle juridictionnel des données.',
     'divisions.fintech.title': 'Systèmes FinTech & RegTech',
@@ -49,14 +50,14 @@ const translations: Record<Language, Record<string, string>> = {
     'divisions.ai.desc': 'Agents, workflows, intelligence décisionnelle et infrastructure AI scalable.',
 
     // Why Choose Us
-    'why.title': 'Pourquoi nous choisir ?',
-    'why.subtitle': 'AI-Driven. Human-Focused.',
-    'why.experience.title': '15+ Ans d\'Expertise Multi-Régionale',
-    'why.experience.desc': 'US, Europe, Afrique, Moyen-Orient',
+    'why.title': 'Pourquoi nous choisir',
+    'why.subtitle': 'Propulsé par l\'IA. Centré sur l\'humain.',
+    'why.experience.title': '18+ Ans d\'Expertise Multi-Régionale',
+    'why.experience.desc': 'US, Europe, Afrique, Moyen-Orient — 250+ projets pilotés',
     'why.roi.title': '300% ROI Institutionnel Prouvé',
-    'why.roi.desc': 'Efficacité financière mesurable',
+    'why.roi.desc': 'Efficacité financière mesurable pour nos clients',
     'why.security.title': 'Souveraineté, Sécurité & RGPD',
-    'why.security.desc': 'Conformité totale garantie',
+    'why.security.desc': 'Conformité totale garantie sur chaque déploiement',
 
     // Services
     'services.title': 'Services',
@@ -64,14 +65,14 @@ const translations: Record<Language, Record<string, string>> = {
     'services.branding': 'Identité de Marque',
     'services.design': 'Design',
     'services.development': 'Développement',
-    'services.marketing': 'SEO/Marketing',
+    'services.marketing': 'SEO / Marketing',
 
     // Features
     'features.title': 'Toutes les fonctionnalités en un seul endroit',
     'features.workflow': 'Moteur de Workflow Adaptatif',
     'features.workflow.desc': 'Propriété intellectuelle propriétaire',
     'features.cloud': 'Architecture Cloud Hybride Scalable',
-    'features.cloud.desc': 'Docker/Kubernetes',
+    'features.cloud.desc': 'Docker / Kubernetes',
     'features.analytics': 'Analytics Prédictifs & Tableaux Exécutifs',
     'features.analytics.desc': 'Intelligence décisionnelle temps réel',
     'features.security': 'Sécurité FinTech & Réduction Fraude',
@@ -84,15 +85,16 @@ const translations: Record<Language, Record<string, string>> = {
     // Process
     'process.title': 'Notre processus simple & intelligent',
     'process.step1.title': 'Découverte & Cadrage Risques',
-    'process.step1.desc': 'Analyse de conformité et définition des objectifs',
+    'process.step1.desc': 'Analyse de conformité et définition des objectifs stratégiques',
     'process.step2.title': 'Architecture Souveraine & Interopérabilité',
-    'process.step2.desc': 'Conception technique et intégrations',
+    'process.step2.desc': 'Conception technique et intégrations sur mesure',
     'process.step3.title': 'Déploiement, Formation & Reporting ROI',
-    'process.step3.desc': 'Mise en production et mesure d\'impact',
+    'process.step3.desc': 'Mise en production et mesure d\'impact mesurable',
 
-    // Case Studies
-    'cases.title': 'Success Stories',
-    'cases.subtitle': 'Résultats mesurables pour nos clients',
+    // Portfolio
+    'cases.title': 'Portfolio',
+    'cases.subtitle': 'Résultats mesurables — projets réels',
+    'portfolio.cta': 'Discuter de votre projet',
 
     // Pricing
     'pricing.title': 'Tarifs transparents',
@@ -107,19 +109,22 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Team
     'team.title': 'Leadership',
-    'team.operations': 'Opérations Globales',
+    'team.operations': 'Équipe & Présence Globale',
 
     // CTA
     'cta.title': 'Prêt à automatiser plus intelligemment ?',
     'cta.subtitle': 'Construisons le futur ensemble.',
-    'cta.book': 'Réserver un appel gratuit',
+    'cta.book': 'Réserver un appel découverte',
+    'cta.book.desc': 'Planifiez un appel de 30 minutes pour discuter de votre projet et explorer comment nous pouvons vous accompagner.',
+    'cta.book.btn': 'Planifier maintenant',
     'cta.deck': 'Demander le deck',
+    'cta.deck.desc': 'Accédez à notre présentation détaillée : stratégie, propriété intellectuelle et vision de croissance.',
 
     // Footer
     'footer.legal': 'Société enregistrée au Wyoming, USA',
     'footer.rights': 'Tous droits réservés',
-    'footer.privacy': 'Politique de confidentialité',
-    'footer.terms': 'Conditions d\'utilisation',
+    'footer.privacy': 'Confidentialité',
+    'footer.terms': 'Conditions',
 
     // Contact Form
     'contact.title': 'Envoyez-nous un message',
@@ -270,7 +275,6 @@ const translations: Record<Language, Record<string, string>> = {
     'investor.successDesc': 'Nous vous enverrons le deck investisseur par email sous 24 heures.',
   },
   en: {
-    // Navigation
     'nav.services': 'Services',
     'nav.process': 'Process',
     'nav.portfolio': 'Portfolio',
@@ -282,25 +286,23 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.solutions': 'Solutions',
     'nav.partnerships': 'Partnerships',
 
-    // Hero
-    'hero.line1': 'Build Smarter.',
-    'hero.line2': 'Grow Faster.',
+    'hero.line1': 'Build',
+    'hero.line2': 'Smarter.',
     'hero.line3': 'With AI.',
-    'hero.subtitle': 'We architect and deploy next-generation AI, FinTech, and GovTech platforms for high-stakes environments — from US financial compliance to African digital sovereignty. Our proprietary IP, valued at €2.8M, delivers measurable institutional ROI.',
-    'hero.cta.primary': 'Get Started',
-    'hero.cta.secondary': 'Learn More',
-    'hero.users': '+4.7K Users',
-    'hero.scroll': 'Scroll to explore',
+    'hero.subtitle': 'We architect and deploy next-generation AI, FinTech, and GovTech platforms for high-stakes environments — from US financial compliance to African digital sovereignty.',
+    'hero.cta.primary': 'Start a project',
+    'hero.cta.secondary': 'Discover our divisions',
+    'hero.users': 'Companies served',
+    'hero.scroll': 'Discover',
+    'hero.ip': 'IP valued at €2.8M',
 
-    // Trust Quote
     'trust.badge': 'TURNING DATA INTO DECISIONS.',
     'trust.quote': 'We bridge proven international security standards (GDPR/RGPD, US Compliance) with the world\'s most complex implementation challenges — delivering technology that guarantees performance and total data sovereignty.',
-    'trust.role': 'Co-Founder & Director of Institutional Strategy & Global GovTech Partnerships',
+    'trust.role': 'Co-Founder & Director of Institutional Strategy',
     'trust.company': 'Millennium Capital Invest LLC',
 
-    // Divisions
     'divisions.title': 'Our divisions',
-    'divisions.subtitle': 'Three execution layers. One institutional standard.',
+    'divisions.subtitle': 'Three execution pillars. One institutional standard.',
     'divisions.govtech.title': 'Sovereign GovTech Platforms',
     'divisions.govtech.desc': 'Deliver secure citizen & administration systems with auditable workflows and jurisdictional data control.',
     'divisions.fintech.title': 'FinTech & RegTech Systems',
@@ -308,30 +310,27 @@ const translations: Record<Language, Record<string, string>> = {
     'divisions.ai.title': 'AI Architecture & Automation',
     'divisions.ai.desc': 'Agents, workflows, decision intelligence, and scalable AI infrastructure.',
 
-    // Why Choose Us
-    'why.title': 'Why choose us?',
+    'why.title': 'Why choose us',
     'why.subtitle': 'AI-Driven. Human-Focused.',
-    'why.experience.title': '15+ Years of Multi-Regional Expertise',
-    'why.experience.desc': 'US, Europe, Africa, Middle East',
+    'why.experience.title': '18+ Years of Multi-Regional Expertise',
+    'why.experience.desc': 'US, Europe, Africa, Middle East — 250+ projects led',
     'why.roi.title': '300% Proven Institutional ROI',
-    'why.roi.desc': 'Measurable financial efficiency',
+    'why.roi.desc': 'Measurable financial efficiency for our clients',
     'why.security.title': 'Sovereignty, Security & GDPR',
-    'why.security.desc': 'Total compliance guaranteed',
+    'why.security.desc': 'Total compliance guaranteed on every deployment',
 
-    // Services
     'services.title': 'Services',
     'services.subtitle': 'Tailored solutions for every need',
-    'services.branding': 'Branding Identity',
+    'services.branding': 'Brand Identity',
     'services.design': 'Design',
     'services.development': 'Development',
-    'services.marketing': 'SEO/Marketing',
+    'services.marketing': 'SEO / Marketing',
 
-    // Features
     'features.title': 'All features in one place',
     'features.workflow': 'Adaptive Workflow Engine',
     'features.workflow.desc': 'Proprietary IP',
     'features.cloud': 'Cloud-Hybrid Scalable Architecture',
-    'features.cloud.desc': 'Docker/Kubernetes',
+    'features.cloud.desc': 'Docker / Kubernetes',
     'features.analytics': 'Predictive Analytics & Executive Dashboards',
     'features.analytics.desc': 'Real-time decision intelligence',
     'features.security': 'FinTech Security & Fraud Reduction',
@@ -341,20 +340,18 @@ const translations: Record<Language, Record<string, string>> = {
     'features.api': 'Interoperability via Standardized APIs',
     'features.api.desc': 'Universal integration',
 
-    // Process
     'process.title': 'Our simple & smart process',
     'process.step1.title': 'Discovery & Risk Framing',
-    'process.step1.desc': 'Compliance analysis and objective definition',
+    'process.step1.desc': 'Compliance analysis and strategic objective definition',
     'process.step2.title': 'Sovereign Architecture & Interoperability',
-    'process.step2.desc': 'Technical design and integrations',
+    'process.step2.desc': 'Technical design and custom integrations',
     'process.step3.title': 'Deployment, Training & ROI Reporting',
-    'process.step3.desc': 'Production launch and impact measurement',
+    'process.step3.desc': 'Production launch and measurable impact',
 
-    // Case Studies
-    'cases.title': 'Success Stories',
-    'cases.subtitle': 'Measurable results for our clients',
+    'cases.title': 'Portfolio',
+    'cases.subtitle': 'Measurable results — real projects',
+    'portfolio.cta': 'Discuss your project',
 
-    // Pricing
     'pricing.title': 'Transparent Pricing',
     'pricing.subtitle': 'Solutions scaled to your needs',
     'pricing.starter': 'Starter',
@@ -365,23 +362,22 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.contact': 'Contact Us',
     'pricing.getStarted': 'Get Started',
 
-    // Team
     'team.title': 'Leadership',
-    'team.operations': 'Global Operations',
+    'team.operations': 'Team & Global Presence',
 
-    // CTA
     'cta.title': 'Ready to automate smarter?',
     'cta.subtitle': 'Let\'s build the future together.',
-    'cta.book': 'Book a free call',
+    'cta.book': 'Book a discovery call',
+    'cta.book.desc': 'Schedule a 30-minute call to discuss your project and explore how we can help.',
+    'cta.book.btn': 'Schedule now',
     'cta.deck': 'Request deck',
+    'cta.deck.desc': 'Access our detailed presentation: strategy, intellectual property, and growth vision.',
 
-    // Footer
     'footer.legal': 'Company registered in Wyoming, USA',
     'footer.rights': 'All rights reserved',
-    'footer.privacy': 'Privacy Policy',
-    'footer.terms': 'Terms of Service',
+    'footer.privacy': 'Privacy',
+    'footer.terms': 'Terms',
 
-    // Contact Form
     'contact.title': 'Send us a message',
     'contact.name': 'Name',
     'contact.email': 'Email',
@@ -409,7 +405,6 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.success': 'Message sent!',
     'contact.successDesc': 'We\'ll get back to you within 24 hours.',
 
-    // Solutions Page
     'solutions.title': 'Our Solutions',
     'solutions.subtitle': 'Four technology pillars powering your transformation.',
     'solutions.deliver': 'What we deliver',
@@ -465,7 +460,6 @@ const translations: Record<Language, Record<string, string>> = {
     'solutions.transform.c2': 'Existing data protection',
     'solutions.transform.c3': 'Transparent project governance',
 
-    // Products Page
     'products.title': 'Our Ecosystem',
     'products.subtitle': 'Proprietary platforms built for West Africa and beyond.',
     'products.disclaimer': 'These platforms are private initiatives in development phase. They are not affiliated with any government. Institutional partnerships are actively sought.',
@@ -480,7 +474,6 @@ const translations: Record<Language, Record<string, string>> = {
     'products.senservices.desc': 'Services and information portal — connecting citizens to local resources.',
     'products.cta': 'Interested in partnering on these platforms?',
 
-    // Partnerships Page
     'partnerships.title': 'Partnerships',
     'partnerships.subtitle': 'Three collaboration models to accelerate impact.',
     'partnerships.track1.title': 'Public Sector & Institutions',
@@ -510,7 +503,6 @@ const translations: Record<Language, Record<string, string>> = {
     'partnerships.formSuccess': 'Request sent!',
     'partnerships.formSuccessDesc': 'Our partnerships team will contact you within 48 hours.',
 
-    // Investor Deck Page
     'investor.title': 'Investor Deck',
     'investor.subtitle': 'Access our detailed investor presentation: strategy, intellectual property, and growth vision.',
     'investor.note': 'No unverified financial figures. No fake logos or invented clients.',

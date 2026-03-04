@@ -21,11 +21,12 @@ const TrustSection = () => {
       ref={sectionRef}
       className="relative overflow-hidden bg-background-deep py-32 md:py-40"
     >
-      {/* Decorative Elements */}
+      {/* Holographic background effect */}
+      <div className="absolute inset-0 holographic opacity-50" />
+      
       <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       
-      {/* Background Glow */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]" />
       </div>
@@ -35,7 +36,6 @@ const TrustSection = () => {
         className="section-container relative z-10"
       >
         <div className="mx-auto max-w-4xl text-center">
-          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -48,7 +48,6 @@ const TrustSection = () => {
             </span>
           </motion.div>
 
-          {/* Quote Icon */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -59,7 +58,6 @@ const TrustSection = () => {
             <Quote className="mx-auto h-12 w-12 text-primary/40" />
           </motion.div>
 
-          {/* Quote Text */}
           <motion.blockquote
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -70,20 +68,15 @@ const TrustSection = () => {
             "{t('trust.quote')}"
           </motion.blockquote>
 
-          {/* Author */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center gap-4"
+            className="flex flex-col items-center gap-2"
           >
-            {/* Avatar Placeholder */}
-            <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 ring-2 ring-primary/20" />
-            <div>
-              <p className="text-sm text-muted-foreground">{t('trust.role')}</p>
-              <p className="mt-1 font-semibold text-foreground">{t('trust.company')}</p>
-            </div>
+            <p className="text-sm text-muted-foreground">{t('trust.role')}</p>
+            <p className="mt-1 font-semibold text-foreground">{t('trust.company')}</p>
           </motion.div>
         </div>
       </motion.div>
