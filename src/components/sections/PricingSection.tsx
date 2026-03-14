@@ -5,56 +5,9 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 
 const plans = [
-  {
-    id: 'starter',
-    nameKey: 'pricing.starter',
-    monthlyPrice: 2500,
-    yearlyPrice: 25000,
-    description: 'Idéal pour les startups et projets initiaux',
-    features: [
-      'Consultation initiale & découverte',
-      'Architecture de base',
-      'Jusqu\'à 2 intégrations',
-      'Support standard (48h)',
-      'Garantie 3 mois',
-    ],
-    highlighted: false,
-  },
-  {
-    id: 'pro',
-    nameKey: 'pricing.pro',
-    monthlyPrice: 7500,
-    yearlyPrice: 75000,
-    description: 'Pour les entreprises en croissance avec des besoins complexes',
-    features: [
-      'Tout le plan Starter',
-      'Architecture avancée & scalabilité',
-      'Jusqu\'à 10 intégrations',
-      'Support prioritaire (24h)',
-      'Analytics propulsés par l\'IA',
-      'Garantie 12 mois',
-      'Chef de projet dédié',
-    ],
-    highlighted: true,
-  },
-  {
-    id: 'enterprise',
-    nameKey: 'pricing.enterprise',
-    monthlyPrice: null,
-    yearlyPrice: null,
-    description: 'Solutions sur mesure pour les grandes organisations',
-    features: [
-      'Tout le plan Pro',
-      'Intégrations illimitées',
-      'Solutions en marque blanche',
-      'Support premium 24/7',
-      'Déploiement on-premise',
-      'SLA garanti',
-      'Advisory exécutif',
-      'Conformité sur mesure',
-    ],
-    highlighted: false,
-  },
+  { id: 'starter', nameKey: 'pricing.starter', monthlyPrice: 2500, yearlyPrice: 25000, description: 'Idéal pour les startups et projets initiaux', features: ['Consultation initiale & découverte', 'Architecture de base', 'Jusqu\'à 2 intégrations', 'Support standard (48h)', 'Garantie 3 mois'], highlighted: false },
+  { id: 'pro', nameKey: 'pricing.pro', monthlyPrice: 7500, yearlyPrice: 75000, description: 'Pour les entreprises en croissance avec des besoins complexes', features: ['Tout le plan Starter', 'Architecture avancée & scalabilité', 'Jusqu\'à 10 intégrations', 'Support prioritaire (24h)', 'Analytics propulsés par l\'IA', 'Garantie 12 mois', 'Chef de projet dédié'], highlighted: true },
+  { id: 'enterprise', nameKey: 'pricing.enterprise', monthlyPrice: null, yearlyPrice: null, description: 'Solutions sur mesure pour les grandes organisations', features: ['Tout le plan Pro', 'Intégrations illimitées', 'Solutions en marque blanche', 'Support premium 24/7', 'Déploiement on-premise', 'SLA garanti', 'Advisory exécutif', 'Conformité sur mesure'], highlighted: false },
 ];
 
 const PricingSection = () => {
@@ -66,90 +19,35 @@ const PricingSection = () => {
       <div className="absolute inset-0">
         <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-primary/5 blur-[150px]" />
       </div>
-
       <div className="section-container relative z-10">
         <div className="mb-12 text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary"
-          >
-            {t('pricing.title')}
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="mb-8 text-3xl font-bold text-foreground md:text-4xl lg:text-5xl metallic-text"
-          >
-            {t('pricing.subtitle')}
-          </motion.h2>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-1 rounded-full border border-border/50 bg-secondary/30 p-1"
-          >
-            <button
-              onClick={() => setIsYearly(false)}
-              className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${
-                !isYearly ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              {t('pricing.monthly')}
-            </button>
-            <button
-              onClick={() => setIsYearly(true)}
-              className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${
-                isYearly ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              {t('pricing.yearly')}
-              <span className="ml-2 rounded-full bg-brand-teal/20 px-2 py-0.5 text-xs text-brand-teal">-17%</span>
-            </button>
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="mb-4 text-sm font-medium uppercase tracking-widest text-primary">{t('pricing.title')}</motion.p>
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} viewport={{ once: true }} className="mb-8 text-3xl font-medium text-foreground md:text-4xl lg:text-5xl metallic-text">{t('pricing.subtitle')}</motion.h2>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }} className="inline-flex items-center gap-1 rounded-full border border-border/50 bg-secondary/30 p-1">
+            <button onClick={() => setIsYearly(false)} className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${!isYearly ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-foreground'}`}>{t('pricing.monthly')}</button>
+            <button onClick={() => setIsYearly(true)} className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${isYearly ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-foreground'}`}>{t('pricing.yearly')}<span className="ml-2 rounded-full bg-brand-teal/20 px-2 py-0.5 text-xs text-brand-teal">-17%</span></button>
           </motion.div>
         </div>
-
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
           {plans.map((plan, index) => (
-            <motion.div
-              key={plan.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`glass-card-glow relative p-6 transition-all duration-500 ${
-                plan.highlighted ? 'ring-2 ring-primary scale-[1.02]' : ''
-              }`}
-            >
+            <motion.div key={plan.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.1 }} viewport={{ once: true }} className={`glass-card-glow relative p-6 transition-all duration-500 ${plan.highlighted ? 'ring-2 ring-primary scale-[1.02]' : ''}`}>
               {plan.highlighted && (
-                <div className="absolute -right-12 top-8 rotate-45 bg-gradient-to-r from-brand-orange to-brand-coral px-14 py-1.5 text-xs font-bold text-white shadow-lg">
-                  <Star className="mr-1 inline h-3 w-3" />
-                  Populaire
+                <div className="absolute -right-12 top-8 rotate-45 bg-gradient-to-r from-brand-orange to-brand-coral px-14 py-1.5 text-xs font-medium text-white shadow-lg">
+                  <Star className="mr-1 inline h-3 w-3" />Populaire
                 </div>
               )}
-
-              <h3 className="mb-2 text-xl font-semibold text-foreground">{t(plan.nameKey)}</h3>
+              <h3 className="mb-2 text-xl font-medium text-foreground">{t(plan.nameKey)}</h3>
               <p className="mb-6 text-sm text-muted-foreground">{plan.description}</p>
-
               <div className="mb-6">
                 {plan.monthlyPrice !== null ? (
                   <>
-                    <span className="text-4xl font-bold text-foreground">
-                      €{isYearly ? plan.yearlyPrice?.toLocaleString() : plan.monthlyPrice.toLocaleString()}
-                    </span>
+                    <span className="text-4xl font-semibold text-foreground">€{isYearly ? plan.yearlyPrice?.toLocaleString() : plan.monthlyPrice.toLocaleString()}</span>
                     <span className="text-muted-foreground">/{isYearly ? 'an' : 'mois'}</span>
                   </>
                 ) : (
-                  <span className="text-3xl font-bold gradient-brand">Sur mesure</span>
+                  <span className="text-3xl font-semibold gradient-brand">Sur mesure</span>
                 )}
               </div>
-
               <ul className="mb-8 space-y-3">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
@@ -158,11 +56,8 @@ const PricingSection = () => {
                   </li>
                 ))}
               </ul>
-
               <Button variant={plan.highlighted ? 'premium' : 'outline'} className="w-full btn-shine" asChild>
-                <a href="#contact">
-                  {plan.monthlyPrice !== null ? t('pricing.getStarted') : t('pricing.contact')}
-                </a>
+                <a href="#contact">{plan.monthlyPrice !== null ? t('pricing.getStarted') : t('pricing.contact')}</a>
               </Button>
             </motion.div>
           ))}
