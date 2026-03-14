@@ -28,7 +28,7 @@ const DivisionsMobile = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.12 }}
                 viewport={{ once: true, margin: "-30px" }}
-                className="glass-card-glow group relative p-5 sm:p-6 transition-all duration-500"
+                className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl group relative p-5 sm:p-6 transition-all duration-500"
               >
                 <div className={`absolute -right-6 -top-6 h-24 w-24 rounded-full ${division.glowClass} blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-60`} />
                 <div className="relative z-10">

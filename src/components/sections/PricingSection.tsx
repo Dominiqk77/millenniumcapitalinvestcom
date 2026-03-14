@@ -30,7 +30,7 @@ const PricingSection = () => {
         </div>
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
           {plans.map((plan, index) => (
-            <motion.div key={plan.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.1 }} viewport={{ once: true }} className={`glass-card-glow relative p-6 transition-all duration-500 ${plan.highlighted ? 'ring-2 ring-primary scale-[1.02]' : ''}`}>
+            <motion.div key={plan.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.1 }} viewport={{ once: true }} className={`backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl relative p-6 transition-all duration-500 ${plan.highlighted ? 'ring-2 ring-primary scale-[1.02]' : ''}`}>
               {plan.highlighted && (
                 <div className="absolute -right-12 top-8 rotate-45 bg-gradient-to-r from-brand-orange to-brand-coral px-14 py-1.5 text-xs font-medium text-white shadow-lg">
                   <Star className="mr-1 inline h-3 w-3" />Populaire

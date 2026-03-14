@@ -33,7 +33,7 @@ const WhyUsCard = ({ titleKey, descKey, icon: Icon, statEnd, statSuffix, statLab
   }, [hasStarted, statEnd]);
 
   return (
-    <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.15 }} viewport={{ once: true }} className="glass-card-glow group relative p-8 transition-all duration-500">
+    <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.15 }} viewport={{ once: true }} className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl group relative p-8 transition-all duration-500">
       <div className={`absolute inset-0 ${bgColor} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
       <div className="relative z-10">
         <div ref={ref} className="mb-6 flex items-baseline gap-2">

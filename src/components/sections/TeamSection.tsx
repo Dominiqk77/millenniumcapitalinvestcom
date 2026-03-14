@@ -27,7 +27,7 @@ const TeamSection = () => {
         <div className="grid gap-16 lg:grid-cols-2">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="space-y-6">
             {team.map((member, index) => (
-              <motion.div key={member.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.15 }} viewport={{ once: true }} className="glass-card-glow p-8">
+              <motion.div key={member.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.15 }} viewport={{ once: true }} className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8">
                 <div className="flex items-start gap-6">
                   <div className={`flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-${member.accentColor}/15 border border-${member.accentColor}/30`}>
                     <span className={`text-2xl font-medium text-${member.accentColor}`}>{member.initials}</span>
@@ -47,7 +47,7 @@ const TeamSection = () => {
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
             <div className="grid gap-4 sm:grid-cols-2">
               {locations.map((location, index) => (
-                <motion.div key={location.city} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: index * 0.1 }} viewport={{ once: true }} className="glass-card-glow group p-6 transition-all">
+                <motion.div key={location.city} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: index * 0.1 }} viewport={{ once: true }} className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl group p-6 transition-all">
                   <div className="mb-3 text-3xl">{location.flag}</div>
                   <p className="text-xs font-medium uppercase tracking-wider text-primary">{location.region}</p>
                   <div className="mt-2 flex items-center gap-2 text-foreground">

@@ -33,7 +33,7 @@ const PortfolioSection = () => {
           {caseStudies.map((study, index) => {
             const Icon = study.icon;
             return (
-              <motion.div key={study.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.1 }} viewport={{ once: true }} className="glass-card-glow group relative transition-all duration-500">
+              <motion.div key={study.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.1 }} viewport={{ once: true }} className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl group relative transition-all duration-500">
                 <div className="border-b border-border/30 p-6">
                   <div className="mb-4 flex items-start justify-between">
                     <div className="flex flex-wrap gap-2">

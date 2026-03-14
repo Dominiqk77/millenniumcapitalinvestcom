@@ -36,13 +36,13 @@ const ContactSection = () => {
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-12 lg:grid-cols-2">
             <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="space-y-6">
-              <div className="glass-card-glow group p-8 transition-all">
+              <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl group p-8 transition-all">
                 <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4"><Calendar className="h-8 w-8 text-primary" /></div>
                 <h3 className="mb-3 text-xl font-medium text-foreground">{t('cta.book')}</h3>
                 <p className="mb-6 text-muted-foreground">{t('cta.book.desc')}</p>
                 <Button variant="premium" size="lg" className="w-full btn-shine" asChild><a href="#contact"><Calendar className="mr-2 h-5 w-5" />{t('cta.book.btn')}</a></Button>
               </div>
-              <div className="glass-card-glow group p-8 transition-all">
+              <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl group p-8 transition-all">
                 <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4"><FileText className="h-8 w-8 text-primary" /></div>
                 <h3 className="mb-3 text-xl font-medium text-foreground">{t('cta.deck')}</h3>
                 <p className="mb-6 text-muted-foreground">{t('cta.deck.desc')}</p>
@@ -51,13 +51,13 @@ const ContactSection = () => {
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
               {isSubmitted ? (
-                <div className="glass-card-glow flex flex-col items-center justify-center p-12 text-center">
+                <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl flex flex-col items-center justify-center p-12 text-center">
                   <CheckCircle className="mb-4 h-16 w-16 text-brand-teal" />
                   <h3 className="mb-2 text-2xl font-medium text-foreground">{t('contact.success')}</h3>
                   <p className="text-muted-foreground">{t('contact.successDesc')}</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="glass-card-glow p-8">
+                <form onSubmit={handleSubmit} className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8">
                   <h3 className="mb-6 text-xl font-medium text-foreground">{t('contact.title')}</h3>
                   <div className="space-y-4">
                     <div className="grid gap-4 sm:grid-cols-2">

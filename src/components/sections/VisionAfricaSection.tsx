@@ -33,7 +33,7 @@ const VisionAfricaSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 viewport={{ once: true }}
-                className="glass-card-glow p-8 text-center"
+                className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8 text-center"
               >
                 <div className={`inline-block p-3 rounded-lg bg-${pillar.color}/10 mb-4`}>
                   <Icon className={`h-6 w-6 text-${pillar.color}`} />
@@ -52,15 +52,15 @@ const VisionAfricaSection = () => {
           viewport={{ once: true }}
           className="grid gap-6 md:grid-cols-3 text-center"
         >
-          <div className="glass-card-glow p-8">
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8">
             <div className="text-3xl font-medium text-primary mb-2">5</div>
             <p className="text-sm text-muted-foreground">Active Projects</p>
           </div>
-          <div className="glass-card-glow p-8">
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8">
             <div className="text-3xl font-medium text-primary mb-2">268+</div>
             <p className="text-sm text-muted-foreground">Merchants & Users</p>
           </div>
-          <div className="glass-card-glow p-8">
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8">
             <div className="text-3xl font-medium text-primary mb-2">1B+</div>
             <p className="text-sm text-muted-foreground">Impact Target</p>
           </div>

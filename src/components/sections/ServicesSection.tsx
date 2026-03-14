@@ -42,7 +42,7 @@ const ServicesSection = () => {
 
           <div className="lg:col-span-1">
             <AnimatePresence mode="wait">
-              <motion.div key={activeCategory.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }} className="glass-card-glow h-full p-8">
+              <motion.div key={activeCategory.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }} className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl h-full p-8">
                 <h3 className="mb-6 text-xl font-medium text-foreground">{t(activeCategory.titleKey)}</h3>
                 <ul className="space-y-4">
                   {activeCategory.features.map((feature, index) => (
@@ -58,7 +58,7 @@ const ServicesSection = () => {
 
           <div className="relative hidden lg:block">
             <AnimatePresence mode="wait">
-              <motion.div key={activeCategory.id} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 1.05 }} transition={{ duration: 0.5 }} className="glass-card-glow flex h-full items-center justify-center p-8">
+              <motion.div key={activeCategory.id} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 1.05 }} transition={{ duration: 0.5 }} className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl flex h-full items-center justify-center p-8">
                 <div className="relative">
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/20 to-transparent blur-2xl" />
                   <div className="relative rounded-3xl bg-secondary/50 p-16 backdrop-blur-xl">

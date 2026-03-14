@@ -34,7 +34,7 @@ const ProcessSection = () => {
               return (
                 <motion.div key={step.number} initial={{ opacity: 0, x: isEven ? -50 : 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true, margin: "-100px" }} className={`relative flex items-center gap-8 md:gap-0 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   <div className={`flex-1 ${isEven ? 'md:pr-16 md:text-right' : 'md:pl-16'}`}>
-                    <div className={`glass-card-glow p-6 ${isEven ? 'md:ml-auto' : ''} max-w-md`}>
+                    <div className={`backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-6 ${isEven ? 'md:ml-auto' : ''} max-w-md`}>
                       <span className="mb-2 block text-4xl font-medium text-primary/30">{step.number}</span>
                       <h3 className="mb-3 text-xl font-medium text-foreground">{t(step.titleKey)}</h3>
                       <p className="text-muted-foreground">{t(step.descKey)}</p>
