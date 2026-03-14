@@ -41,11 +41,11 @@ const PricingSection = () => {
               <div className="mb-6">
                 {plan.monthlyPrice !== null ? (
                   <>
-                    <span className="text-4xl font-semibold text-foreground">€{isYearly ? plan.yearlyPrice?.toLocaleString() : plan.monthlyPrice.toLocaleString()}</span>
+                    <span className="text-4xl font-medium text-foreground">€{isYearly ? plan.yearlyPrice?.toLocaleString() : plan.monthlyPrice.toLocaleString()}</span>
                     <span className="text-muted-foreground">/{isYearly ? 'an' : 'mois'}</span>
                   </>
                 ) : (
-                  <span className="text-3xl font-semibold gradient-brand">Sur mesure</span>
+                  <span className="text-3xl font-medium gradient-brand">Sur mesure</span>
                 )}
               </div>
               <ul className="mb-8 space-y-3">

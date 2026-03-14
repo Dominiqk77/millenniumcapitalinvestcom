@@ -76,6 +76,9 @@ const Footer = () => {
         </div>
         <p className="mt-6 text-center text-xs text-muted-foreground/60">{t('footer.legal')} — Entity ID: 2025-001724094</p>
       </div>
+        <div className="mt-8 text-center text-xs text-muted-foreground">
+          <p>Millennium Capital Invest LLC — Wyoming, USA | EIN: 32-0820523 | Registered in Wyoming, United States</p>
+        </div>
     </footer>
   );
 };

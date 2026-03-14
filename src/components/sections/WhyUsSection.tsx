@@ -37,7 +37,7 @@ const WhyUsCard = ({ titleKey, descKey, icon: Icon, statEnd, statSuffix, statLab
       <div className={`absolute inset-0 ${bgColor} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
       <div className="relative z-10">
         <div ref={ref} className="mb-6 flex items-baseline gap-2">
-          <span className={`text-5xl font-semibold ${textColor}`}>{count}{statSuffix}</span>
+          <span className={`text-5xl font-medium ${textColor}`}>{count}{statSuffix}</span>
           <span className="text-lg font-medium text-muted-foreground">{statLabel}</span>
         </div>
         <div className={`mb-4 inline-flex rounded-xl ${bgColor} p-3`}><Icon className={`h-6 w-6 ${textColor}`} /></div>

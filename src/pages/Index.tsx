@@ -10,6 +10,7 @@ import ServicesSection from '@/components/sections/ServicesSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
 import ProcessSection from '@/components/sections/ProcessSection';
 import PortfolioSection from '@/components/sections/PortfolioSection';
+import VisionAfricaSection from '@/components/sections/VisionAfricaSection';
 import PricingSection from '@/components/sections/PricingSection';
 import TeamSection from '@/components/sections/TeamSection';
 import ContactSection from '@/components/sections/ContactSection';
@@ -39,6 +40,8 @@ const Index = () => {
         <ProcessSection />
         <div className="section-separator" />
         <PortfolioSection />
+      <div className="section-separator" />
+      <VisionAfricaSection />
         <div className="section-separator" />
         <PricingSection />
         <div className="section-separator" />
