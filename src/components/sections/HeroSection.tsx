@@ -20,13 +20,28 @@ const HeroSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-[hsl(220,25%,8%)] via-[hsl(210,20%,6%)] to-[hsl(220,30%,4%)]">
-      <div className="absolute inset-0 tech-grid opacity-60" />
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+      {/* Video background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay on video */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,25%,4%)/0.85] via-[hsl(210,20%,3%)/0.75] to-[hsl(220,30%,4%)/0.85]" />
+      </div>
+
+      <div className="absolute inset-0 tech-grid opacity-40" />
       
-      <motion.div animate={{ x: [0, 40, 0], y: [0, -30, 0] }} transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }} className="absolute left-1/4 top-1/4 h-[700px] w-[700px] rounded-full bg-brand-orange/15 blur-[200px]" />
-      <motion.div animate={{ x: [0, -50, 0], y: [0, 40, 0] }} transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }} className="absolute right-1/4 bottom-1/4 h-[650px] w-[650px] rounded-full bg-brand-blue/12 blur-[200px]" />
-      <motion.div animate={{ x: [0, 25, 0], y: [0, -50, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-brand-teal/10 blur-[180px]" />
-      <motion.div animate={{ x: [0, -30, 0], y: [0, 20, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="absolute right-1/3 top-1/3 h-[400px] w-[400px] rounded-full bg-brand-coral/10 blur-[180px]" />
+      <motion.div animate={{ x: [0, 40, 0], y: [0, -30, 0] }} transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }} className="absolute left-1/4 top-1/4 h-[700px] w-[700px] rounded-full bg-brand-orange/10 blur-[200px]" />
+      <motion.div animate={{ x: [0, -50, 0], y: [0, 40, 0] }} transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }} className="absolute right-1/4 bottom-1/4 h-[650px] w-[650px] rounded-full bg-brand-blue/8 blur-[200px]" />
+      <motion.div animate={{ x: [0, 25, 0], y: [0, -50, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-brand-teal/8 blur-[180px]" />
+      <motion.div animate={{ x: [0, -30, 0], y: [0, 20, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="absolute right-1/3 top-1/3 h-[400px] w-[400px] rounded-full bg-brand-coral/8 blur-[180px]" />
 
       <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-15" xmlns="http://www.w3.org/2000/svg">
         <motion.polygon points="200,50 230,70 230,110 200,130 170,110 170,70" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" animate={{ opacity: [0.2, 0.6, 0.2], rotate: [0, 60, 0] }} transition={{ duration: 12, repeat: Infinity }} style={{ transformOrigin: '200px 90px' }} />
@@ -36,22 +51,20 @@ const HeroSection = () => {
       </svg>
 
       {floatingElements.map((el, i) => (
-        <motion.span key={i} initial={{ opacity: 0 }} animate={{ opacity: [0, 0.25, 0.12, 0.25, 0], y: [0, -30, -15, -40, -60] }} transition={{ duration: el.duration, repeat: Infinity, delay: el.delay, ease: "easeInOut" }} className="absolute font-mono text-sm text-primary/25 pointer-events-none select-none" style={{ left: el.x, top: el.y }}>{el.text}</motion.span>
+        <motion.span key={i} initial={{ opacity: 0 }} animate={{ opacity: [0, 0.25, 0.12, 0.25, 0], y: [0, -30, -15, -40, -60] }} transition={{ duration: el.duration, repeat: Infinity, delay: el.delay, ease: "easeInOut" }} className="absolute font-mono text-sm text-primary/20 pointer-events-none select-none" style={{ left: el.x, top: el.y }}>{el.text}</motion.span>
       ))}
 
       <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-        <motion.path d="M0,300 Q200,250 400,300 T800,280" fill="none" stroke="hsl(210 8% 78% / 0.15)" strokeWidth="1" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }} />
-        <motion.path d="M100,500 Q400,450 700,500 T1200,480" fill="none" stroke="hsl(25 95% 55% / 0.12)" strokeWidth="1" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 4, delay: 1, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }} />
-        <motion.path d="M200,100 Q500,150 800,100 T1400,120" fill="none" stroke="hsl(210 85% 50% / 0.12)" strokeWidth="1" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 3.5, delay: 0.5, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }} />
-        <motion.path d="M50,650 Q350,600 650,650 T1100,630" fill="none" stroke="hsl(160 70% 45% / 0.1)" strokeWidth="1" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 5, delay: 2, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }} />
+        <motion.path d="M0,300 Q200,250 400,300 T800,280" fill="none" stroke="hsl(210 8% 78% / 0.12)" strokeWidth="1" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }} />
+        <motion.path d="M100,500 Q400,450 700,500 T1200,480" fill="none" stroke="hsl(25 95% 55% / 0.1)" strokeWidth="1" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 4, delay: 1, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }} />
+        <motion.path d="M200,100 Q500,150 800,100 T1400,120" fill="none" stroke="hsl(210 85% 50% / 0.1)" strokeWidth="1" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 3.5, delay: 0.5, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }} />
       </svg>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/30 to-background/80" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background/70" />
 
       <div className="section-container relative z-10 py-32">
         <div className="mx-auto max-w-5xl text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="mb-8 inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/10 px-5 py-2.5 backdrop-blur-sm">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="mb-8 inline-flex items-center gap-3 rounded-full border border-primary/20 bg-primary/5 px-5 py-2.5 backdrop-blur-md">
             <Sparkles className="h-4 w-4 text-primary" />
             <span className="text-sm font-medium text-primary">{t('hero.users')}</span>
             <div className="flex -space-x-1">

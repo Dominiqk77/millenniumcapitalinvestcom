@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Globe, MapPin, Building, Calendar, Shield } from 'lucide-react';
+import { Globe, MapPin, Building, Calendar, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logoMain from '@/assets/logo-main.png';
+import Navigation from '@/components/layout/Navigation';
+import Footer from '@/components/layout/Footer';
 
 const regions = [
   { region: 'Americas', location: 'United States', description: 'Corporate registration & US market coverage' },
@@ -12,20 +13,14 @@ const regions = [
 ];
 
 const About = () => {
+  useEffect(() => { document.title = 'About — Millennium Capital Invest'; }, []);
+
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b border-border/30 bg-background-deep">
-        <div className="section-container flex h-20 items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logoMain} alt="Millennium Capital Invest" className="h-10 w-auto" />
-            <span className="text-lg font-medium text-foreground">Millennium Capital Invest</span>
-          </Link>
-          <Link to="/" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"><ArrowLeft className="h-4 w-4" />Back to Home</Link>
-        </div>
-      </header>
+      <Navigation />
 
       <main>
-        <section className="relative overflow-hidden bg-background-deep py-24 lg:py-32">
+        <section className="relative overflow-hidden bg-background-deep pt-32 pb-20 lg:pt-40 lg:pb-28">
           <div className="absolute inset-0">
             <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-brand-blue/10 blur-[150px]" />
             <div className="absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full bg-brand-teal/10 blur-[150px]" />
@@ -39,7 +34,7 @@ const About = () => {
         <section className="section-container py-16 lg:py-24">
           <div className="mx-auto max-w-4xl">
             <h2 className="mb-12 text-3xl font-medium text-foreground">Leadership</h2>
-            <div className="glass-card p-8 lg:p-12">
+            <div className="glass-card-glow p-8 lg:p-12">
               <div className="flex flex-col gap-8 md:flex-row">
                 <div className="flex h-32 w-32 shrink-0 items-center justify-center rounded-2xl bg-secondary border border-border/50">
                   <span className="text-4xl font-medium text-primary">DM</span>
@@ -54,13 +49,13 @@ const About = () => {
           </div>
         </section>
 
-        <section className="bg-background-deep py-16 lg:py-24">
+        <section className="gradient-mesh-bg py-16 lg:py-24">
           <div className="section-container">
             <h2 className="mb-4 text-center text-3xl font-medium text-foreground">Regions Served</h2>
             <p className="mb-12 text-center text-muted-foreground">Delivery & partnerships focus across four strategic regions</p>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {regions.map((region, i) => (
-                <motion.div key={region.region} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: i * 0.1 }} viewport={{ once: true }} className="glass-card p-6 text-center">
+                <motion.div key={region.region} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: i * 0.1 }} viewport={{ once: true }} className="glass-card-glow p-6 text-center">
                   <Globe className="mx-auto mb-3 h-8 w-8 text-primary" />
                   <h3 className="mb-1 text-lg font-medium text-foreground">{region.region}</h3>
                   <p className="mb-2 flex items-center justify-center gap-1 text-sm text-primary"><MapPin className="h-3 w-3" /> {region.location}</p>
@@ -74,7 +69,7 @@ const About = () => {
         <section className="section-container py-16 lg:py-24">
           <div className="mx-auto max-w-3xl">
             <h2 className="mb-8 text-3xl font-medium text-foreground">Company Facts</h2>
-            <div className="glass-card divide-y divide-border/30">
+            <div className="glass-card-glow divide-y divide-border/30">
               {[
                 { icon: Building, label: 'Legal Entity', value: 'Millennium Capital Invest LLC' },
                 { icon: MapPin, label: 'Jurisdiction', value: 'State of Wyoming, United States' },
@@ -94,7 +89,7 @@ const About = () => {
           </div>
         </section>
 
-        <section className="bg-background-deep py-16">
+        <section className="gradient-mesh-bg py-16">
           <div className="section-container text-center">
             <h2 className="mb-6 text-3xl font-medium text-foreground">Ready to work with us?</h2>
             <div className="flex flex-wrap justify-center gap-4">
@@ -104,6 +99,7 @@ const About = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };
