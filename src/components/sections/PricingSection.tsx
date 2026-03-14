@@ -5,9 +5,9 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { Button } from '@/components/ui/button';
 
 const plans = [
-  { id: 'starter', nameKey: 'pricing.starter', monthlyPrice: 2500, yearlyPrice: 25000, description: 'Idéal pour les startups et projets initiaux', features: ['Consultation initiale & découverte', 'Architecture de base', 'Jusqu\'à 2 intégrations', 'Support standard (48h)', 'Garantie 3 mois'], highlighted: false },
-  { id: 'pro', nameKey: 'pricing.pro', monthlyPrice: 7500, yearlyPrice: 75000, description: 'Pour les entreprises en croissance avec des besoins complexes', features: ['Tout le plan Starter', 'Architecture avancée & scalabilité', 'Jusqu\'à 10 intégrations', 'Support prioritaire (24h)', 'Analytics propulsés par l\'IA', 'Garantie 12 mois', 'Chef de projet dédié'], highlighted: true },
-  { id: 'enterprise', nameKey: 'pricing.enterprise', monthlyPrice: null, yearlyPrice: null, description: 'Solutions sur mesure pour les grandes organisations', features: ['Tout le plan Pro', 'Intégrations illimitées', 'Solutions en marque blanche', 'Support premium 24/7', 'Déploiement on-premise', 'SLA garanti', 'Advisory exécutif', 'Conformité sur mesure'], highlighted: false },
+  { id: 'starter', nameKey: 'pricing.starter', description: 'Idéal pour les startups et projets initiaux', features: ['Consultation initiale & découverte', 'Architecture de base', 'Jusqu\'à 2 intégrations', 'Support standard (48h)', 'Garantie 3 mois'], highlighted: false },
+  { id: 'pro', nameKey: 'pricing.pro', description: 'Pour les entreprises en croissance avec des besoins complexes', features: ['Tout le plan Starter', 'Architecture avancée & scalabilité', 'Jusqu\'à 10 intégrations', 'Support prioritaire (24h)', 'Analytics propulsés par l\'IA', 'Garantie 12 mois', 'Chef de projet dédié'], highlighted: true },
+  { id: 'enterprise', nameKey: 'pricing.enterprise', , description: 'Solutions sur mesure pour les grandes organisations', features: ['Tout le plan Pro', 'Intégrations illimitées', 'Solutions en marque blanche', 'Support premium 24/7', 'Déploiement on-premise', 'SLA garanti', 'Advisory exécutif', 'Conformité sur mesure'], highlighted: false },
 ];
 
 const PricingSection = () => {
@@ -23,10 +23,7 @@ const PricingSection = () => {
         <div className="mb-12 text-center">
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="mb-4 text-sm font-medium uppercase tracking-widest text-primary">{t('pricing.title')}</motion.p>
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} viewport={{ once: true }} className="mb-8 text-3xl font-medium text-foreground md:text-4xl lg:text-5xl metallic-text">{t('pricing.subtitle')}</motion.h2>
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }} className="inline-flex items-center gap-1 rounded-full border border-border/50 bg-secondary/30 p-1">
-            <button onClick={() => setIsYearly(false)} className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${!isYearly ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-foreground'}`}>{t('pricing.monthly')}</button>
-            <button onClick={() => setIsYearly(true)} className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${isYearly ? 'bg-primary text-primary-foreground shadow-lg' : 'text-muted-foreground hover:text-foreground'}`}>{t('pricing.yearly')}<span className="ml-2 rounded-full bg-brand-teal/20 px-2 py-0.5 text-xs text-brand-teal">-17%</span></button>
-          </motion.div>
+          
         </div>
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
           {plans.map((plan, index) => (
@@ -39,14 +36,8 @@ const PricingSection = () => {
               <h3 className="mb-2 text-xl font-medium text-foreground">{t(plan.nameKey)}</h3>
               <p className="mb-6 text-sm text-muted-foreground">{plan.description}</p>
               <div className="mb-6">
-                {plan.monthlyPrice !== null ? (
-                  <>
-                    <span className="text-4xl font-medium text-foreground">€{isYearly ? plan.yearlyPrice?.toLocaleString() : plan.monthlyPrice.toLocaleString()}</span>
-                    <span className="text-muted-foreground">/{isYearly ? 'an' : 'mois'}</span>
-                  </>
-                ) : (
-                  <span className="text-3xl font-medium gradient-brand">Sur mesure</span>
-                )}
+                <span className="text-3xl font-medium gradient-brand">Tarification personnalisée</span>
+                <p className="text-sm text-muted-foreground mt-2">Devis gratuit adapté à vos besoins</p>
               </div>
               <ul className="mb-8 space-y-3">
                 {plan.features.map((feature) => (
