@@ -1,8 +1,7 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Shield, CreditCard, Bot, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const divisions = [
   { id: '01', titleKey: 'divisions.govtech.title', descKey: 'divisions.govtech.desc', icon: Shield, color: 'brand-teal', glowClass: 'bg-brand-teal/20', borderGlow: 'hsl(160 70% 45% / 0.4)' },
@@ -14,28 +13,33 @@ const DivisionsMobile = () => {
   const { t } = useLanguage();
   return (
     <section id="divisions" className="relative overflow-hidden gradient-mesh-bg py-20 md:py-28">
-      <div className="absolute inset-0 tech-grid opacity-20" />
+      <div className="absolute inset-0 tech-grid opacity-15" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/30" />
       <div className="section-container relative z-10">
-        <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary text-center">{t('divisions.title')}</p>
-        <h2 className="mb-10 text-3xl font-medium text-foreground md:text-4xl metallic-text text-center">{t('divisions.subtitle')}</h2>
-        <div className="space-y-6">
+        <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }} className="mb-3 text-sm font-medium uppercase tracking-widest text-primary text-center">{t('divisions.title')}</motion.p>
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} viewport={{ once: true }} className="mb-10 text-2xl font-medium text-foreground sm:text-3xl md:text-4xl metallic-text text-center leading-tight">{t('divisions.subtitle')}</motion.h2>
+        <div className="space-y-5">
           {divisions.map((division, index) => {
             const Icon = division.icon;
             return (
-              <motion.div key={division.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.15 }} viewport={{ once: true, margin: "-50px" }} className="glass-card-glow group relative p-6 transition-all duration-500">
-                <div className={`absolute -right-6 -top-6 h-28 w-28 rounded-full ${division.glowClass} blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-80`} />
-                <div className="relative z-10 flex items-start gap-4">
-                  <span className="text-3xl font-medium text-primary/40 group-hover:text-primary transition-colors">{division.id}</span>
-                  <div className="flex-1">
-                    <div className="mb-3 flex items-center gap-3">
-                      <div className={`rounded-xl p-2.5 bg-${division.color}/15 neon-glow-${division.color.split('-')[1]} transition-all`}>
-                        <Icon className={`h-5 w-5 text-${division.color}`} />
-                      </div>
-                      <h3 className="text-lg font-medium text-foreground">{t(division.titleKey)}</h3>
+              <motion.div
+                key={division.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.12 }}
+                viewport={{ once: true, margin: "-30px" }}
+                className="glass-card-glow group relative p-5 sm:p-6 transition-all duration-500"
+              >
+                <div className={`absolute -right-6 -top-6 h-24 w-24 rounded-full ${division.glowClass} blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-60`} />
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-2xl font-medium text-primary/30 group-hover:text-primary/60 transition-colors">{division.id}</span>
+                    <div className={`rounded-xl p-2.5 bg-${division.color}/10`}>
+                      <Icon className={`h-5 w-5 text-${division.color}`} />
                     </div>
-                    <p className="text-sm leading-relaxed text-muted-foreground">{t(division.descKey)}</p>
+                    <h3 className="text-base sm:text-lg font-medium text-foreground flex-1">{t(division.titleKey)}</h3>
                   </div>
-                  <ArrowRight className="h-5 w-5 text-primary/0 group-hover:text-primary transition-all duration-300 group-hover:translate-x-1" />
+                  <p className="text-sm leading-relaxed text-muted-foreground pl-0">{t(division.descKey)}</p>
                 </div>
               </motion.div>
             );
@@ -63,19 +67,19 @@ const DivisionsDesktop = () => {
         <div className="absolute inset-0">
           {divisions.map((division, index) => (
             <motion.div key={division.id} animate={{ opacity: activeIndex === index ? 1 : 0 }} transition={{ duration: 0.8 }} className="absolute inset-0">
-              <div className={`absolute inset-0 ${division.glowClass} blur-[120px] opacity-40`} />
+              <div className={`absolute inset-0 ${division.glowClass} blur-[120px] opacity-30`} />
             </motion.div>
           ))}
-          <div className="absolute inset-0 tech-grid opacity-25" />
+          <div className="absolute inset-0 tech-grid opacity-15" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/70" />
         </div>
 
-        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-15" xmlns="http://www.w3.org/2000/svg">
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-10" xmlns="http://www.w3.org/2000/svg">
           <motion.circle cx="80%" cy="30%" r="3" fill="hsl(var(--primary))" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 2, repeat: Infinity }} />
           <motion.circle cx="85%" cy="50%" r="2" fill="hsl(var(--brand-orange))" animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 3, repeat: Infinity }} />
           <motion.circle cx="75%" cy="70%" r="3" fill="hsl(var(--brand-teal))" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 2.5, repeat: Infinity }} />
-          <motion.line x1="80%" y1="30%" x2="85%" y2="50%" stroke="hsl(var(--primary) / 0.3)" strokeWidth="1" />
-          <motion.line x1="85%" y1="50%" x2="75%" y2="70%" stroke="hsl(var(--primary) / 0.3)" strokeWidth="1" />
+          <motion.line x1="80%" y1="30%" x2="85%" y2="50%" stroke="hsl(var(--primary) / 0.2)" strokeWidth="1" />
+          <motion.line x1="85%" y1="50%" x2="75%" y2="70%" stroke="hsl(var(--primary) / 0.2)" strokeWidth="1" />
         </svg>
 
         <div className="section-container relative z-10">
@@ -110,9 +114,9 @@ const DivisionsDesktop = () => {
 
             <div className="hidden items-center justify-center lg:flex">
               <div className="relative aspect-square w-full max-w-lg">
-                <div className="absolute inset-0 rounded-full border border-brand-orange/20 animate-pulse" />
-                <div className="absolute inset-8 rounded-full border border-brand-blue/20" />
-                <div className="absolute inset-16 rounded-full border border-brand-teal/20" />
+                <div className="absolute inset-0 rounded-full border border-brand-orange/15" />
+                <div className="absolute inset-8 rounded-full border border-brand-blue/15" />
+                <div className="absolute inset-16 rounded-full border border-brand-teal/15" />
                 <motion.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }} className="absolute inset-0">
                   <div className="absolute left-0 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-brand-orange neon-glow-orange" />
                   <div className="absolute right-0 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-brand-coral" />
@@ -143,10 +147,16 @@ const DivisionsDesktop = () => {
 };
 
 const DivisionsSection = () => {
-  const isMobile = useIsMobile();
-  if (typeof window !== 'undefined' && window.innerWidth < 1024) return <DivisionsMobile />;
-  if (isMobile) return <DivisionsMobile />;
-  return <DivisionsDesktop />;
+  const [isDesktop, setIsDesktop] = useState(false);
+  
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= 1024);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  return isDesktop ? <DivisionsDesktop /> : <DivisionsMobile />;
 };
 
 export default DivisionsSection;
