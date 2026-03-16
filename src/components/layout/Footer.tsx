@@ -40,7 +40,7 @@ const Footer = () => {
                 <span className="block text-xs text-muted-foreground">LLC • Wyoming, USA</span>
               </div>
             </a>
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">Plateformes AI, FinTech et GovTech de nouvelle génération pour les environnements à enjeux critiques. Souveraineté numérique depuis 2009.</p>
+            <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">Millennium Capital Invest est une entreprise technologique spécialisée dans la conception de plateformes de nouvelle génération, axée sur l&apos;intelligence artificielle (IA), la FinTech et la GovTech. Forte de plus de 18 ans d&apos;expérience, elle propose des solutions stratégiques et des services numériques sur mesure pour optimiser les performances des entreprises.</p>
             <div className="mt-6 flex items-center gap-4">
               <a href="mailto:contact@millenniumcapitalinvest.com" className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"><Mail className="h-4 w-4" />contact@millenniumcapitalinvest.com</a>
             </div>

@@ -17,6 +17,7 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
+    { href: '/', label: t('nav.home') || 'Accueil' },
     { href: '/solutions', label: t('nav.solutions') },
     { href: '#divisions', label: t('nav.divisions') },
     { href: '/partnerships', label: t('nav.partnerships') },
@@ -31,7 +32,7 @@ const Navigation = () => {
     <>
       <motion.header initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-background/90 backdrop-blur-xl border-b border-border/40' : 'bg-transparent'}`}>
         <nav className="section-container flex h-20 items-center justify-between">
-          <a href="#" className="relative z-10 flex items-center gap-3 group">
+          <a href="/" className="relative z-10 flex items-center gap-3 group">
             <motion.img src={logoMain} alt="Millennium Capital Invest" className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
             <div className="hidden sm:block">
               <span className="block text-lg font-medium tracking-tight text-foreground">Millennium Capital</span>

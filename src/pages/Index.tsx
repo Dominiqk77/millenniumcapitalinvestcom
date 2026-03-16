@@ -8,6 +8,7 @@ import DivisionsSection from '@/components/sections/DivisionsSection';
 import WhyUsSection from '@/components/sections/WhyUsSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
+import AIToolsSection from '@/components/sections/AIToolsSection';
 import ProcessSection from '@/components/sections/ProcessSection';
 import PortfolioSection from '@/components/sections/PortfolioSection';
 import VisionAfricaSection from '@/components/sections/VisionAfricaSection';
@@ -36,6 +37,8 @@ const Index = () => {
         <ServicesSection />
         <div className="section-separator" />
         <FeaturesSection />
+        <div className="section-separator" />
+        <AIToolsSection />
         <div className="section-separator" />
         <ProcessSection />
         <div className="section-separator" />

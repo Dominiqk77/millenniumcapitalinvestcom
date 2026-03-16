@@ -1,74 +1,69 @@
-# Plan : Corrections build + Vidéo Hero + Footer + Section AI Tools + Navbar + Liens
 
-## Erreurs de build à corriger
 
-### 1. `PortfolioSection.tsx` ligne 9
+# Plan : Hero Premium + Divisions Fix + Design Futuriste
 
-Le texte `d'une` contient une apostrophe typographique (`'`) au lieu d'une apostrophe droite, ce qui casse le parsing JS. Il faut échapper ou remplacer par `\'` ou réécrire la string.
+## Problemes identifies
 
-### 2. `PricingSection.tsx` ligne 10
-
-Double virgule `,,` dans l'objet enterprise : `{ id: 'enterprise', nameKey: 'pricing.enterprise', , description:` — supprimer la virgule en trop.
+1. **Hero** : fond noir plat, peu de profondeur visuelle — les orbs sont trop subtiles (opacity 8%), la tech-grid trop discrete (opacity 40%), et les circuit lines quasi invisibles (opacity 6-8%)
+2. **DivisionsSection** : `min-h-[300vh]` avec sticky scroll — bloque le defilement sur mobile et tablette car le scroll-snap est trop agressif. Sur mobile, la colonne droite est `hidden` donc 300vh de scroll pour 3 cartes cliquables est excessif
+3. **Design general** : manque de couleur et d'effets visuels impactants
 
 ---
 
-## Modifications
+## 1. Hero Section — Fond immersif et vivant
 
-### 3. Vidéo Hero
+**Fichier** : `src/components/sections/HeroSection.tsx`
 
-- Copier `user-uploads://MILLENNIUM_CAPITAL_INVEST_2_1.mp4` vers `public/videos/hero-bg.mp4`
-- La vidéo est déjà référencée dans HeroSection.tsx avec `autoPlay muted loop playsInline` — OK
-- Renforcer l'overlay sombre dégradé pour garantir la lisibilité du texte : utiliser un multi-layer gradient (top-to-bottom + radial center dark) avec des opacités fortes (0.7-0.85)
+- Augmenter l'intensite des gradient orbs : `bg-brand-orange/8` → `bg-brand-orange/15`, `bg-brand-blue/8` → `bg-brand-blue/12`, `bg-brand-teal/6` → `bg-brand-teal/10`
+- Augmenter la taille des orbs (600-700px) pour plus de couverture
+- Ajouter un gradient mesh en fond : `bg-gradient-to-br from-[hsl(220,25%,8%)] via-[hsl(210,20%,6%)] to-[hsl(220,30%,4%)]` au lieu du noir pur
+- Augmenter l'opacite des floating code elements : `text-primary/15` → `text-primary/25`
+- Augmenter la visibilite des circuit lines SVG (stroke opacity 0.12-0.15 au lieu de 0.06-0.08)
+- Ajouter un 4e orb couleur coral pour plus de richesse
+- Ajouter des hexagones geometriques decoratifs animes en SVG (inspires du logo M)
+- Reduire l'overlay gradient : `from-background/90` → `from-background/70` et `via-background/50` → `via-background/30`
 
-### 4. Footer — Nouveau texte
+## 2. Divisions Section — Correction scroll + responsive
 
-- Ligne 43 : remplacer `"Plateformes AI, FinTech et GovTech..."` par le texte fourni : `"Millennium Capital Invest est une entreprise technologique spécialisée dans la conception de plateformes de nouvelle génération, axée sur l'intelligence artificielle (IA), la FinTech et la GovTech. Forte de plus de 18 ans d'expérience, elle propose des solutions stratégiques et des services numériques sur mesure pour optimiser les performances des entreprises."`
+**Fichier** : `src/components/sections/DivisionsSection.tsx`
 
-### 5. Section logos outils IA
+**Probleme principal** : `min-h-[300vh]` + sticky sur mobile = scroll interminable et bloquant.
 
-- Créer un nouveau composant `AIToolsSection.tsx` avec l'image uploadée (`user-uploads://image-22.webp`) copiée vers `src/assets/ai-tools-logos.webp`
-- Section avec titre "Nos Outils & Technologies IA", description courte, et l'image centrée dans un glass-card
-- Ajouter dans `Index.tsx` après la section Features ou Services
+**Solution** :
+- **Mobile/tablette** (< lg) : supprimer le sticky scroll, afficher les 3 divisions comme des cartes empilees classiques avec animations `whileInView`. Utiliser un layout vertical simple, pas de `min-h-[300vh]`
+- **Desktop** (>= lg) : garder le sticky scroll mais reduire a `min-h-[200vh]` pour un defilement plus naturel
+- Implementer avec un state `isMobile` via le hook `use-mobile` deja present dans le projet
+- Sur mobile : 3 glass-cards empilees avec icone, numero, titre, description, et un glow colore au hover
+- Ajouter des effets visuels enrichis : border gradient anime au hover, icone avec glow colore par division
 
-### 6. Navbar — Bouton Accueil + Logo → home
+## 3. Effets et couleurs premium sur tout le site
 
-- Ajouter `{ href: '/', label: 'Accueil' }` en premier dans `navLinks`
-- Changer le logo `href="#"` → `href="/"`
-- Vérifier que tous les liens nav utilisent les bons chemins :
-  - `/` — Accueil
-  - `/solutions` — Solutions (page complète)
-  - `#divisions` — Divisions (section homepage)
-  - `/partnerships` — Partenariats (page complète)
-  - `#portfolio` — Portfolio (section homepage)
-  - `#pricing` — Tarifs (section homepage)
-  - `#contact` — Contact (section homepage)
+**Fichier** : `src/index.css`
 
-### 7. Liens Portfolio → projets réels
+- Ajouter une classe `.gradient-mesh-bg` : fond avec gradient radial multi-couleurs subtil (remplace le noir plat)
+- Ajouter `.neon-glow-orange`, `.neon-glow-blue`, `.neon-glow-teal` : lueurs neon pour les elements interactifs
+- Ajouter `.animated-border` : bordure gradient animee qui tourne sur les cartes premium
+- Ameliorer `.glass-card` : augmenter le blur, ajouter une lueur interne plus visible
+- Ajouter `.text-glow` : text-shadow colore subtil pour les titres de section
 
-- Vérifier que les `url` dans chaque case study sont correctes :
-  - `https://sene-pay.com` ✓
-  - `https://mafactureprosn.com` ✓
-  - `https://senservicessenegal.com` ✓
-  - `https://senadmin.com` ✓
-  - `https://mydcardio.com` ✓
-  - `https://senstock.com` ✓
-  - `https://dominiqkmendy.com` ✓
-- S'assurer que les liens ouvrent en `target="_blank" rel="noopener noreferrer"`
-- `sur la homepag au dessus du header ou navbar il ya du texte satoshi qui s'affiche et que tu dois supprimer toutes les pages doivent etre parfaite sans erreur corrige tout ce qu'il faudra sans rien casser`
+**Fichier** : `src/components/sections/TrustSection.tsx`
+- Augmenter l'intensite du holographic background
+- Ajouter des particules decoratives flottantes
+
+**Fichiers** : `FeaturesSection.tsx`, `ProcessSection.tsx`, `WhyUsSection.tsx`
+- Ajouter des gradient mesh backgrounds au lieu du noir pur
+- Augmenter l'intensite des effets existants (tech-grid, glows)
 
 ---
 
-## Fichiers à modifier (7)
+## Fichiers a modifier (6)
 
+| Fichier | Actions |
+|---------|---------|
+| `src/components/sections/HeroSection.tsx` | Fond immersif, orbs intensifies, hexagones SVG, overlays reduits |
+| `src/components/sections/DivisionsSection.tsx` | Fix scroll mobile (cartes empilees), reduce desktop 200vh, effets visuels |
+| `src/index.css` | Nouvelles classes (gradient-mesh, neon-glow, animated-border, text-glow) |
+| `src/components/sections/TrustSection.tsx` | Holographic intensifie, particules |
+| `src/components/sections/FeaturesSection.tsx` | Gradient mesh background |
+| `src/components/sections/ProcessSection.tsx` | Gradient mesh background |
 
-| Fichier                                        | Action                           |
-| ---------------------------------------------- | -------------------------------- |
-| `public/videos/hero-bg.mp4`                    | Copie nouvelle vidéo             |
-| `src/assets/ai-tools-logos.webp`               | Copie image logos IA             |
-| `src/components/sections/PortfolioSection.tsx` | Fix apostrophe ligne 9           |
-| `src/components/sections/PricingSection.tsx`   | Fix double virgule ligne 10      |
-| `src/components/sections/HeroSection.tsx`      | Overlay renforcé multi-layer     |
-| `src/components/layout/Footer.tsx`             | Nouveau texte description        |
-| `src/components/layout/Navigation.tsx`         | Ajout Accueil + logo → `/`       |
-| `src/components/sections/AIToolsSection.tsx`   | Nouvelle section logos outils IA |
-| `src/pages/Index.tsx`                          | Ajouter AIToolsSection           |
