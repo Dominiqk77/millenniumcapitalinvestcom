@@ -3,7 +3,7 @@ import { MapPin, Briefcase, Award } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 
 const team = [
-  { name: 'Dominiqk Mendy', role: 'Fondateur & CEO', bio: 'Expert international en transformation digitale, IA et innovation technologique. 18+ ans d\'expérience multi-régionale (US, Europe, Afrique, Moyen-Orient). Pilotage de 250+ projets dans 15+ pays.', initials: 'DM', accentColor: 'brand-orange' },
+  { name: 'Dominiqk Mendy', role: 'Fondateur & CEO', bio: 'Expert international en transformation digitale, IA et innovation technologique. 15+ ans d\'expérience multi-régionale (US, Europe, Afrique, Moyen-Orient). Pilotage de 250+ projets dans 15+ pays.', initials: 'DM', accentColor: 'brand-orange' },
   { name: 'Zineb FARES', role: 'Co-fondatrice & Relations Publiques', bio: 'Responsable des Relations Publiques et Partenariats Institutionnels chez Millennium Capital Invest. Stratégie de communication et développement des relations avec les parties prenantes clés.', initials: 'ZF', accentColor: 'brand-teal' },
 ];
 
