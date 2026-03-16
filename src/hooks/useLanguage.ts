@@ -52,7 +52,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Why Choose Us
     'why.title': 'Pourquoi nous choisir',
     'why.subtitle': 'Propulsé par l\'IA. Centré sur l\'humain.',
-    'why.experience.title': '18+ Ans d\'Expertise Multi-Régionale',
+    'nav.home': 'Accueil',
+    'why.experience.title': '15+ Ans d\'Expertise Multi-Régionale',
     'why.experience.desc': 'US, Europe, Afrique, Moyen-Orient — 250+ projets pilotés',
     'why.roi.title': '300% ROI Institutionnel Prouvé',
     'why.roi.desc': 'Efficacité financière mesurable pour nos clients',
