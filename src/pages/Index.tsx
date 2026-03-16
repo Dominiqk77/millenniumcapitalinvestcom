@@ -38,6 +38,8 @@ const Index = () => {
         <div className="section-separator" />
         <FeaturesSection />
         <div className="section-separator" />
+        <AIToolsSection />
+        <div className="section-separator" />
         <ProcessSection />
         <div className="section-separator" />
         <PortfolioSection />

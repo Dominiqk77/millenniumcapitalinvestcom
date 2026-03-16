@@ -48,7 +48,7 @@ const PricingSection = () => {
                 ))}
               </ul>
               <Button variant={plan.highlighted ? 'premium' : 'outline'} className="w-full btn-shine" asChild>
-                <a href="#contact">{plan.monthlyPrice !== null ? t('pricing.getStarted') : t('pricing.contact')}</a>
+                <a href="#contact">{t('pricing.contact')}</a>
               </Button>
             </motion.div>
           ))}

@@ -32,8 +32,10 @@ const HeroSection = () => {
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
-        {/* Dark overlay on video */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,25%,4%)/0.85] via-[hsl(210,20%,3%)/0.75] to-[hsl(220,30%,4%)/0.85]" />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(0,0,0,0.7)_80%)]" />
       </div>
 
       <div className="absolute inset-0 tech-grid opacity-40" />
