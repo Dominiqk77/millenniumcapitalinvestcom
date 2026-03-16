@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 const plans = [
   { id: 'starter', nameKey: 'pricing.starter', description: 'Idéal pour les startups et projets initiaux', features: ['Consultation initiale & découverte', 'Architecture de base', 'Jusqu\'à 2 intégrations', 'Support standard (48h)', 'Garantie 3 mois'], highlighted: false },
   { id: 'pro', nameKey: 'pricing.pro', description: 'Pour les entreprises en croissance avec des besoins complexes', features: ['Tout le plan Starter', 'Architecture avancée & scalabilité', 'Jusqu\'à 10 intégrations', 'Support prioritaire (24h)', 'Analytics propulsés par l\'IA', 'Garantie 12 mois', 'Chef de projet dédié'], highlighted: true },
-  { id: 'enterprise', nameKey: 'pricing.enterprise', , description: 'Solutions sur mesure pour les grandes organisations', features: ['Tout le plan Pro', 'Intégrations illimitées', 'Solutions en marque blanche', 'Support premium 24/7', 'Déploiement on-premise', 'SLA garanti', 'Advisory exécutif', 'Conformité sur mesure'], highlighted: false },
+  { id: 'enterprise', nameKey: 'pricing.enterprise', description: 'Solutions sur mesure pour les grandes organisations', features: ['Tout le plan Pro', 'Intégrations illimitées', 'Solutions en marque blanche', 'Support premium 24/7', 'Déploiement on-premise', 'SLA garanti', 'Advisory exécutif', 'Conformité sur mesure'], highlighted: false },
 ];
 
 const PricingSection = () => {
