@@ -17,6 +17,7 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
+    { href: '/', label: t('nav.home') || 'Accueil' },
     { href: '/solutions', label: t('nav.solutions') },
     { href: '#divisions', label: t('nav.divisions') },
     { href: '/partnerships', label: t('nav.partnerships') },
