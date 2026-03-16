@@ -313,7 +313,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     'why.title': 'Why choose us',
     'why.subtitle': 'AI-Driven. Human-Focused.',
-    'why.experience.title': '18+ Years of Multi-Regional Expertise',
+    'nav.home': 'Home',
+    'why.experience.title': '15+ Years of Multi-Regional Expertise',
     'why.experience.desc': 'US, Europe, Africa, Middle East — 250+ projects led',
     'why.roi.title': '300% Proven Institutional ROI',
     'why.roi.desc': 'Measurable financial efficiency for our clients',
